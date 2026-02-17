@@ -1,0 +1,1 @@
+const gragas = "Finaste killen"
