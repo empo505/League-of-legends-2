@@ -1,0 +1,1 @@
+const push = "måndag, torsdag, söndag";
