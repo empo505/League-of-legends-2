@@ -16,7 +16,7 @@ export type Choices = ListGraph;
 export type Choices_arr = Array<Array<string>>;
 export type Story = Array<string>;
 
-const story_graph: Choices = {
+const game_graph: Choices = {
     adj: [list(1, 2),
           list(3, 4),
           list(5),
@@ -26,7 +26,10 @@ const story_graph: Choices = {
           list()],
     size: 7
 };
+const game_story = ["Vart vill du gå?"];
+const game_options = [["Sjön", "Huset"]];
 
+/*
 const story_choice: Choices_arr = [["path 1", "path 2"],
                                    ["path 3", "path 4"]];
 
@@ -45,7 +48,7 @@ function treverse_graph(graph: Choices) {
 }
 
 console.log(treverse_graph(story_graph));
-
+*/
 
 // Psudo code
 
@@ -53,7 +56,7 @@ function main() {
     // "Welcome to game, do you want to start"
     if (input === "y") { // input to start game
         return play_game();
-    } else {} // else do nothing
+    } else {} // else do nothing?
 }
 
 function play_game(graph: ListGraph, story: Array<string>, options: Array<Array<string>>) {
@@ -77,7 +80,22 @@ function display_prompt(story: Array<string>, options: Array<Array<string>>) {
 function display_options(options: Array<Array<string>>) {
     // displays the options to a story prompt
     for (let i = 0; i < Array.length(options[i]); i++) {
-        console.log("Option 1: " + options[i])
+        console.log("Option 1: ")
         console.log("Option 2: ")
     }
+    make_choice();
 }
+
+function make_choice() {
+    const input: number = Number(prompt("> "));
+
+    if (input <= length(choices.adj[current_node]) + 1 && input > 0) {
+        console.log("Choice " + input + " was chosen")
+        current_node = Number(list_ref(choices.adj[current_node], input - 1))
+        make_choice();
+
+    } else {
+        console.log("Invalid input! Choose again:")
+        make_choice();
+    }
+}   
