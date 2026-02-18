@@ -38,9 +38,9 @@ const path = build_array(choices.size, _ => 0)
 
 function decision() {
     const options = choices_array[current_node]; 
-    console.log(`1: ${options[0]}, 2: ${options[1]}`);
+    console.log(`1: options[0], 2: options[1]`);
 
-    const choice = Number(prompt("Välj 1 eller 2:"));
+    const choice:number = prompt("Välj 1 eller 2:");
     if (choice !== 1 && choice !== 2) {
         console.log("Ogiltigt val! Försök igen.");
         return decision();
