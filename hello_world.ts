@@ -1,5 +1,5 @@
 import {
-    for_each, member, type List, list, head, tail
+    for_each, member, type List, list, head, tail, length, list_ref, is_null
 } from './lib/list';
 
 import {
@@ -10,6 +10,10 @@ import {
     type ListGraph
 } from './lib/graphs';
 
+import * as PromptSync from "prompt-sync";
+
+const prompt: PromptSync.Prompt = PromptSync({ sigint: true });
+
 function build_array<T>(size: number, content: (i: number) => T): Array<T> {
     const result = Array<T>(size);
     for (var i = 0; i < size; i = i + 1) {
@@ -19,16 +23,25 @@ function build_array<T>(size: number, content: (i: number) => T): Array<T> {
 }
 
 const choices: ListGraph = {
-        size: 1000,
+        size: 20,
         adj: [
             list(1, 2),
-            
+            list(2, 3),
+            list(4, 5),
+            list(),
+            list(),
+            list(),
         ]
 } 
 
 const choices_array: Array<Array<string>> = [
-    ["Go to path", "asdasdas"],
-    ["basdkaskd", "Blalbalbal"]
+    ["1", "2"],
+    ["2", "3"],
+    ["4", "5"],
+    ["3"],
+    ["4"],
+    ["5"]
+
 ]
 
 //väg som först bara är 
@@ -37,3 +50,40 @@ const path = build_array(choices.size, _ => 0)
 for (let i = 0; i < choices_array.length; i++){
     // 
 }
+
+function main(): void {
+    console.log("Welcome to (game)!")
+    console.log("Please pick your choice!")
+    choice();
+
+}
+
+let current_node = 0;
+
+function display_choices(): void {
+    for (let i = 0; i < length(choices.adj[current_node]); i++) {
+            console.log("Choice " + (i + 1) + ": " + choices_array[current_node][i])
+        }
+}
+
+function choice(){
+    if (is_null(choices.adj[current_node])) {
+        console.log("Game over fuckass")
+    }
+    else {
+        display_choices();
+    }
+
+    const input: number = Number(prompt("> "))
+
+        if (input <= length(choices.adj[current_node]) + 1 && input > 0) {
+            console.log("Choice " + input + " was chosen")
+            current_node = Number(list_ref(choices.adj[current_node], input - 1))
+            choice();
+
+        } else {
+            console.log("Invalid input! Choose again:")
+            choice();
+        }
+    }    
+main();
