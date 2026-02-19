@@ -3,16 +3,15 @@ import {
 } from './lib/list';
 
 import {
-    type Queue, empty, enqueue
-} from './lib/queue_array';
-
-import {
     type ListGraph
 } from './lib/graphs';
 
-import * as PromptSync from "prompt-sync";
+import promptSync = require("prompt-sync");
 
-const prompt: PromptSync.Prompt = PromptSync({ sigint: true });
+import {
+    choices, choices_array
+} from './story'
+const prompt = promptSync()
 
 function build_array<T>(size: number, content: (i: number) => T): Array<T> {
     const result = Array<T>(size);
@@ -22,34 +21,7 @@ function build_array<T>(size: number, content: (i: number) => T): Array<T> {
     return result;
 }
 
-const choices: ListGraph = {
-        size: 20,
-        adj: [
-            list(1, 2),
-            list(2, 3),
-            list(4, 5),
-            list(),
-            list(),
-            list(),
-        ]
-} 
-
-const choices_array: Array<Array<string>> = [
-    ["1", "2"],
-    ["2", "3"],
-    ["4", "5"],
-    ["3"],
-    ["4"],
-    ["5"]
-
-]
-
 //väg som först bara är 
-const path = build_array(choices.size, _ => 0)
-
-for (let i = 0; i < choices_array.length; i++){
-    // 
-}
 
 function main(): void {
     console.log("Welcome to (game)!")
