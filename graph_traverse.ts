@@ -1,101 +1,85 @@
 import {
-    for_each,
-    List,
-    list, is_null,
-    list_ref
+    for_each, List, list, is_null, list_ref, length
 } from './lib/list';
-import {
-    type Queue, empty, is_empty, enqueue, dequeue, head as qhead
-} from './lib/queue_array';
+
 import {
     type ListGraph
 } from './lib/graphs';
 
-// Type declarations
-export type Choices = ListGraph;
-export type Choices_arr = Array<Array<string>>;
-export type Story = Array<string>;
+import prompSync = require("prompt-sync");
+const prompt = prompSync();
 
-const game_graph: Choices = {
+// Type declarations
+export type FlowGraph = ListGraph;
+export type Options = Array<Array<string>>;
+export type Story = Array<string>;
+export type Game = {
+    graph: FlowGraph
+    options: Options
+    story: Story
+};
+const game_graph: FlowGraph = {
     adj: [list(1, 2),
-          list(3, 4),
-          list(5),
-          list(6),
-          list(6),
           list(),
           list()],
-    size: 7
+    size: 3
 };
-const game_story = ["Vart vill du gå?"];
+const game_story = ["Vart vill du gå?", "Du överlevde!", "Du dog..."];
 const game_options = [["Sjön", "Huset"]];
 
-/*
-const story_choice: Choices_arr = [["path 1", "path 2"],
-                                   ["path 3", "path 4"]];
-
-function treverse_graph(graph: Choices) {
-    const nodes = graph.size;
-    const adj_lst = graph.adj;
-    const visited: Array<number> = new Array<number>(nodes).fill(0);
-    // 
-    for (let i = 0; i < nodes; i++) {
-        if (adj_lst[i] === null) { // if a node have no children, we are done
-            return visited;
-        } else if (visited[i] === 0) { // when visiting a node, change it to 1 in the array
-            visited[i] = 1;
-        } else {}
-    }
-}
-
-console.log(treverse_graph(story_graph));
-*/
+const game_test: Game = {
+    graph: game_graph,
+    options: game_options,
+    story: game_story
+};
 
 // Psudo code
-
-function main() {
-    // "Welcome to game, do you want to start"
+function main(game: Game): void {
+    console.log("Welcome to game, do you want to start? y/n");
+    const input: string = prompt("> ");
     if (input === "y") { // input to start game
-        return play_game();
+        play_game(game);
     } else {} // else do nothing?
 }
 
-function play_game(graph: ListGraph, story: Array<string>, options: Array<Array<string>>) {
-    for (let i = 0; i < graph.size; i++) {
-        if (is_null(graph.adj[i])) { // if a node is an end-node, we end the game
-            return "Game over";
+function play_game(game: Game): void {
+    let current_node = 0;
+    for (let i = 0; i < game.graph.size; i++) { // loop over the grap
+        let current_options = game.options[current_node];
+        if (is_null(game.graph.adj[current_node])) { // if a node is an end-node, we end the game
+            console.log(game.story[current_node]);
+            game_over(game);
+            break
         } else {
-            // const choices = list_ref(graph.adj[i], i - 1);
-            display_prompt(story, options); // otherwise display a story promt
+            console.log(game.story[current_node]);
+            display_options(current_options);
+            const input: number = Number(prompt("> "));
+
+            if (input <= length(game.graph.adj[current_node]) + 1 && input > 0) {
+                console.log("You chose option " + input);
+                current_node = Number(list_ref(game.graph.adj[current_node], input - 1));
+
+            } else {
+                console.log("Invalid input! Choose again:");
+            }
         }
     }
 }
 
-function display_prompt(story: Array<string>, options: Array<Array<string>>) {
-    for (let i = 0; i < array.length(story); i++) {
-        console.log(story[i]); // display story promt at index i
-        display_options(options[i]); // display the choices 
-    }
-}
-
-function display_options(options: Array<Array<string>>) {
+function display_options(node_option: Array<string>): void {
     // displays the options to a story prompt
-    for (let i = 0; i < Array.length(options[i]); i++) {
-        console.log("Option 1: ")
-        console.log("Option 2: ")
+    for (let i = 0; i < (node_option.length); i++) {
+        console.log("Option " + (i + 1) + ": " + node_option[i]);
     }
-    make_choice();
 }
 
-function make_choice() {
-    const input: number = Number(prompt("> "));
+function game_over(game: Game): void {
+    console.log("The game is over");
+    console.log("Do you want to play again? y/n");
+    const input: string = prompt("> ");
+    if (input === "y") { // input to start game
+        main(game);
+    } else {} // else do nothing?
+}
 
-    if (input <= length(choices.adj[current_node]) + 1 && input > 0) {
-        console.log("Choice " + input + " was chosen")
-        current_node = Number(list_ref(choices.adj[current_node], input - 1))
-        make_choice();
-
-    } else {
-        console.log("Invalid input! Choose again:")
-        make_choice();
-    }
-}   
+main(game_test);
