@@ -6,8 +6,8 @@ import {
     type ListGraph
 } from './lib/graphs';
 
-import prompSync = require("prompt-sync");
-const prompt = prompSync();
+import promptSync = require("prompt-sync");
+const prompt = promptSync();
 
 // Type declarations
 export type FlowGraph = ListGraph;
