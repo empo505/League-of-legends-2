@@ -6,8 +6,14 @@ import {
     type ListGraph
 } from './lib/graphs';
 
+<<<<<<< HEAD
 import promptSync = require("prompt-sync");
 const prompt = promptSync();
+=======
+import prompSync = require("prompt-sync");
+const prompt = prompSync();
+import { choices_array, choices, story_array } from './story';
+>>>>>>> f215f2dcb62cec85d5fb6fc6e912459b9dfd8492
 
 // Type declarations
 export type FlowGraph = ListGraph;
@@ -18,6 +24,7 @@ export type Game = {
     options: Options
     story: Story
 };
+
 const game_graph: FlowGraph = {
     adj: [list(1, 2),
           list(),
@@ -31,6 +38,12 @@ const game_test: Game = {
     graph: game_graph,
     options: game_options,
     story: game_story
+};
+
+const game_test1: Game = {
+    graph: choices,
+    options: choices_array,
+    story: story_array
 };
 
 // Psudo code
@@ -82,4 +95,4 @@ function game_over(game: Game): void {
     } else {} // else do nothing?
 }
 
-main(game_test);
+main(game_test1);
