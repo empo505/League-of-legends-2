@@ -8,7 +8,7 @@ import {
 
 import prompSync = require("prompt-sync");
 const prompt = prompSync();
-import { choices_array, choices, story_array } from './story';
+import { game1 } from './story';
 
 // Type declarations
 export type FlowGraph = ListGraph;
@@ -20,6 +20,7 @@ export type Game = {
     story: Story
 };
 
+// Test data
 const game_graph: FlowGraph = {
     adj: [list(1, 2),
           list(),
@@ -29,16 +30,10 @@ const game_graph: FlowGraph = {
 const game_story = ["Vart vill du gå?", "Du överlevde!", "Du dog..."];
 const game_options = [["Sjön", "Huset"]];
 
-const game_test: Game = {
+const game_test1: Game = {
     graph: game_graph,
     options: game_options,
     story: game_story
-};
-
-const game_test1: Game = {
-    graph: choices,
-    options: choices_array,
-    story: story_array
 };
 
 // Psudo code

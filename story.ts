@@ -6,7 +6,9 @@ import {
     for_each, member, type List, list, head, tail, length, list_ref, is_null
 } from './lib/list';
 
-export type FlowGraph = ListGraph;
+import {
+    Game, Story, Options, FlowGraph, 
+} from './graph_traverse';
 
 export const choices: FlowGraph = {
         adj: [
@@ -42,7 +44,7 @@ export const choices: FlowGraph = {
         size: 27
 } 
 
-export const choices_array: Array<Array<string>> = [
+export const choices_array: Options = [
     ["Go to beach", "Go to forest", "Go to mountain"],       // 0
     ["Look for food", "Keep going towards city"],            // 1
     ["Move toward noise", "Go to highground to scout"],      // 2
@@ -72,6 +74,13 @@ export const choices_array: Array<Array<string>> = [
     ["You manage to scrape by in the old house, but miserably, and die weeks later of a zombie"], // 26
     ["You stumble upon an escaped convict and get stabbed, and you bleed out to the sunset as Nutshell by Alice in Chains play"] // 27
 ]
-export const story_array: Array<string> = ["bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla",
+export const story_array: Story = ["bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla",
                                             "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla",
                                             "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", ];
+
+
+export const game1: Game = {
+    graph: choices,
+    options: choices_array,
+    story: story_array
+};
