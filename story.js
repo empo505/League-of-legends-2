@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.choices_array = exports.choices = void 0;
+exports.story_array = exports.choices_array = exports.choices = void 0;
 var list_1 = require("./lib/list");
 exports.choices = {
     adj: [
@@ -55,8 +55,8 @@ exports.choices_array = [
     ["The berries were poisonous and you died!"], // 16
     ["The berries were not poisonous and you live"], // 17
     ["Clean yourself at lake", "Clean yourself at downside"], // 18
-    ["You trust the stranger and follow him"], // 19
-    ["You dont trust the stranger and remain by yourself hungry"], // 20
+    ["You dont trust the stranger and remain by yourself hungry"], // 19
+    ["You trust the stranger and follow him"], // 20
     ["You approach the community and they let you in"], // 21
     ["In the old house you stumble upon a zombie, and defeat it"], // 22
     ["You are now ready and energized and setup camp and live happily ever after... unless?"], // 23
@@ -65,3 +65,6 @@ exports.choices_array = [
     ["You manage to scrape by in the old house, but miserably, and die weeks later of a zombie"], // 26
     ["You stumble upon an escaped convict and get stabbed, and you bleed out to the sunset as Nutshell by Alice in Chains play"] // 27
 ];
+exports.story_array = ["bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla",
+    "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla",
+    "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla",];
