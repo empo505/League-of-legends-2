@@ -13,6 +13,26 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.dynamic-bg {
+  /* Force it to fill the screen */
+  width: 100vw;
+  height: 100vh;
+  
+  /* Stretching options: */
+  background-size: 100% 100%; /* Literal stretch (distorts image) */
+  /* OR use 'cover' if you want it to look good without distorting */
+  
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Centering the button and text */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: background-image 0.2s ease-in; /* Smooth swap */
+}
+
 a {
   font-weight: 500;
   color: #646cff;

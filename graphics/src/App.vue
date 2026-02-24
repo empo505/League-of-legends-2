@@ -1,23 +1,52 @@
 <script setup>
   import Cbutton from "./components/Cbutton.vue";
-  import {ref} from "vue";'
+  
+  import {ref} from "vue";
+  
+  import {vue_game} from "./graph_traverse_return.ts";
+  import {game_test} from "../story.ts";
+  
+  const gameData = ref(game_test);
+  const currentNode = ref(0);
 
-  const penis = ref(true)
+  const gameActive = ref(false);
+  
+  const startGame = () => {
+    currentNode.value = 0;
+    gameActive.value = true;
+  };
 
-  function peniskoll(){
-    penis.value = !penis.value
+const makeChoice = (index) => {
+  // index is 0, 1, 2... from v-for
+const result = vue_game(gameData, currentNode.value, index + 1);  
+  if (result.nextNode === null) {
+    alert("The game is over!");
+    gameActive.value = false;
+  } else {
+    // Update the ref to the new node number
+    currentNode.value = result.nextNode;
   }
+};
+  
 </script>
 
 <template>
-  <div>
-    <h1>Pool party Gragas
-    <Cbutton @click="peniskoll">Tryck för penis
-      </Cbutton>
-    <h1 v-if="penis"> PENIS </h1>
-    <h1 v-else> penis...? </h1>
+  <h1 style="color: red; background: black;">IF YOU SEE THIS, VUE IS ALIVE</h1>
+   <div>
+    <div v-if="!gameActive">
+      <h1>Welcome to the game!</h1>
+      <Cbutton @click="startGame">Start Game</Cbutton>
+    </div>
 
-   </div>
+    <div v-else>
+      <p>{{ gameData.story[currentNode] }}</p>
+
+      <div v-for="(option, i) in gameData.options[currentNode]" :key="i">
+        <Cbutton @click="makeChoice(i)">
+          Option {{ i + 1 }}: {{ option }}
+        </Cbutton>
+      </div>
+    </div>
+  </div> 
 </template>
-
 
