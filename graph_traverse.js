@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var list_1 = require("./lib/list");
+exports.game_test = void 0;
+exports.Graphmain = Graphmain;
+var list_1 = require("./graphics/lib/list");
 var prompSync = require("prompt-sync");
 var prompt = prompSync();
 var story_1 = require("./story");
@@ -12,7 +14,7 @@ var game_graph = {
 };
 var game_story = ["Vart vill du gå?", "Du överlevde!", "Du dog..."];
 var game_options = [["Sjön", "Huset"]];
-var game_test = {
+export const game_test = {
     graph: game_graph,
     options: game_options,
     story: game_story
@@ -23,7 +25,7 @@ var game_test1 = {
     story: story_1.story_array
 };
 // Psudo code
-function main(game) {
+function Graphmain(game) {
     console.log("Welcome to game, do you want to start? y/n");
     var input = prompt("> ");
     if (input === "y") { // input to start game
@@ -65,8 +67,8 @@ function game_over(game) {
     console.log("Do you want to play again? y/n");
     var input = prompt("> ");
     if (input === "y") { // input to start game
-        main(game);
+        Graphmain(game);
     }
     else { } // else do nothing?
 }
-main(game_test1);
+Graphmain(game_test1);

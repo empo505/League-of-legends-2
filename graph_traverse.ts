@@ -1,14 +1,14 @@
 import {
     for_each, List, list, is_null, list_ref, length
-} from './lib/list';
+} from './graphics/lib/list';
 
 import {
     type ListGraph
-} from './lib/graphs';
+} from './graphics/lib/graphs';
 
 import prompSync = require("prompt-sync");
 const prompt = prompSync();
-import { choices_array, choices, story_array } from './story';
+import { choices_array, choices, story_array } from './graphics/story';
 
 // Type declarations
 export type FlowGraph = ListGraph;
@@ -29,7 +29,7 @@ const game_graph: FlowGraph = {
 const game_story = ["Vart vill du gå?", "Du överlevde!", "Du dog..."];
 const game_options = [["Sjön", "Huset"]];
 
-const game_test: Game = {
+export const game_test: Game = {
     graph: game_graph,
     options: game_options,
     story: game_story
@@ -42,7 +42,7 @@ const game_test1: Game = {
 };
 
 // Psudo code
-function main(game: Game): void {
+export function Graphmain(game: Game): void {
     console.log("Welcome to game, do you want to start? y/n");
     const input: string = prompt("> ");
     if (input === "y") { // input to start game
@@ -86,8 +86,8 @@ function game_over(game: Game): void {
     console.log("Do you want to play again? y/n");
     const input: string = prompt("> ");
     if (input === "y") { // input to start game
-        main(game);
+        Graphmain(game);
     } else {} // else do nothing?
 }
 
-main(game_test1);
+Graphmain(game_test1);
