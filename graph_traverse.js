@@ -4,24 +4,6 @@ var list_1 = require("./lib/list");
 var prompSync = require("prompt-sync");
 var prompt = prompSync();
 var story_1 = require("./story");
-var game_graph = {
-    adj: [(0, list_1.list)(1, 2),
-        (0, list_1.list)(),
-        (0, list_1.list)()],
-    size: 3
-};
-var game_story = ["Vart vill du gå?", "Du överlevde!", "Du dog..."];
-var game_options = [["Sjön", "Huset"]];
-var game_test = {
-    graph: game_graph,
-    options: game_options,
-    story: game_story
-};
-var game_test1 = {
-    graph: story_1.choices,
-    options: story_1.choices_array,
-    story: story_1.story_array
-};
 // Psudo code
 function main(game) {
     console.log("Welcome to game, do you want to start? y/n");
@@ -69,4 +51,4 @@ function game_over(game) {
     }
     else { } // else do nothing?
 }
-main(game_test1);
+main(story_1.game1);

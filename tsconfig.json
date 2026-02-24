@@ -1,8 +1,17 @@
-{
-  "compilerOptions": {
+{ 
+ "compilerOptions": {
     "target": "es6",
     "module": "CommonJS",
     "strict": true,
     "sourceMap": true,
-  }
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+
+  },
+
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+
 }
