@@ -1,5 +1,6 @@
 import {
-    list_ref
+    list_ref,
+    type List
 } from '../lib/list.ts';
 
 import {
@@ -15,17 +16,21 @@ export type Game = {
     options: Options
     story: Story
 };
+type newRecord = {
+    nextNode: number | null
+    current_options: string[]
+    story: string
+}
 
 
-
-export function vue_game(game: Game, currentNode: number, userNext: number) {
+export function vue_game(game: Game, currentNode: number, userNext: number): newRecord {
     const neighbors = game.graph.adj[currentNode];
     
     if (!neighbors || neighbors === null) {
         return {
             nextNode: null, 
             current_options: [],
-            story: game.story[currentNode]
+            story: String(game.story[currentNode])
         };
     }
 
@@ -34,8 +39,8 @@ export function vue_game(game: Game, currentNode: number, userNext: number) {
 
     return {
         nextNode, 
-        current_options: game.options[currentNode],
-        story: game.story[currentNode]
+        current_options: game.options[currentNode] ?? [],
+        story: String(game.story[currentNode])
     };
 }
 

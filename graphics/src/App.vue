@@ -28,22 +28,33 @@ const result = vue_game(gameData.value, currentNode.value, index);
 </script>
 
 <template>
-  <h1 style="color: red; background: black;">LEAGUE PF LEGENDS 2</h1>
-   <div>
-    <div v-if="!gameActive">
-      <h1>Welcome to the game!</h1>
-      <Cbutton @click="startGame">Start Game</Cbutton>
+  <div class="game-wrapper">
+      <header class="game-header">
+        <h1>SPEL</h1>
+      </header>
+    <main class="game-content">
+    <div v-if="!gameActive" class="start-screen">
+      <h2>Welcome to game!</h2>
+      <Cbutton @click="startGame">Press to play!</Cbutton>
     </div>
 
-    <div v-else>
+    <div v-else class="story-screen">
+      <div class content-area>
+      <div class="story-card">
       <p>{{ gameData.story[currentNode] }}</p>
-
-      <div v-for="(option, i) in gameData.options[currentNode]" :key="i">
+      </div>
+    </div>
+      <div class="options-outer-bar">
+      <div class="options-container">
+      <div v-for="(option, i) in gameData.options[currentNode]" :key="i" class="option-item">
         <Cbutton @click="makeChoice(i)">
-          Option {{ i + 1 }}: {{ option }}
+          <span class="gold-text"> </span>{{ option }}
         </Cbutton>
       </div>
     </div>
-  </div> 
+      </div>
+    </div>
+  </main>
+</div>
 </template>
 
