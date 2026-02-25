@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.story_array = exports.choices_array = exports.choices = void 0;
+exports.game1 = exports.story_array = exports.choices_array = exports.choices = void 0;
 var list_1 = require("./lib/list");
 exports.choices = {
     adj: [
@@ -68,3 +68,8 @@ exports.choices_array = [
 exports.story_array = ["bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla",
     "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla",
     "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla",];
+exports.game1 = {
+    graph: exports.choices,
+    options: exports.choices_array,
+    story: exports.story_array
+};

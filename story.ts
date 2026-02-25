@@ -8,7 +8,7 @@ import {
 
 import {
     Game, Story, Options, FlowGraph, 
-} from './graph_traverse';
+} from './game_code';
 
 export const choices: FlowGraph = {
         adj: [
@@ -49,7 +49,7 @@ export const choices_array: Options = [
     ["Look for food", "Keep going towards city"],            // 1
     ["Move toward noise", "Go to highground to scout"],      // 2
     ["Try to kill deer for food", "Rest"],                   // 3
-    ["You found mysterious berries of different colors"],    // 4
+    [],    // 4
     ["Go toward mysterious berries (sign said purple are safe)", "Move toward mysterious creature"],   // 5
     ["Move toward moving thing", "Set up camp for safety"],  // 6
     ["Try to kill deer for food", "Set up camp for safety"], // 7
@@ -74,9 +74,36 @@ export const choices_array: Options = [
     ["You manage to scrape by in the old house, but miserably, and die weeks later of a zombie"], // 26
     ["You stumble upon an escaped convict and get stabbed, and you bleed out to the sunset as Nutshell by Alice in Chains play"] // 27
 ]
-export const story_array: Story = ["bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla",
-                                            "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla",
-                                            "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", "bla", ];
+export const story_array: Story = [
+    "bla", // 0
+    "bla", // 1
+    "bla", // 2
+    "bla", // 3
+    "bla", // 4
+    "You found mysterious berries of different colors", // 5
+    "bla", // 6
+    "bla", // 7
+    "bla", // 8
+    "bla", // 9
+    "bla", // 10
+    "bla", // 11
+    "bla", // 12
+    "bla", // 13
+    "bla", // 14
+    "bla", // 15
+    "bla", // 16
+    "bla", // 17
+    "bla", // 18
+    "bla", // 19
+    "bla", // 20
+    "bla", // 21
+    "bla", // 22
+    "bla", // 23
+    "bla", // 24
+    "bla", // 25
+    "bla", // 26
+    "bla", // 27
+];
 
 
 export const game1: Game = {
