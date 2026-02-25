@@ -8,5 +8,5 @@
     "sourceMap": true,
     "esModuleInterop": true
   },
-  "include": ["./", "lib"]
+  "include": ["./", "graphics/lib"]
 }
