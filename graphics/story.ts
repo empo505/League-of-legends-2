@@ -9,10 +9,12 @@ import {
 export type FlowGraph = ListGraph;
 export type Options = Array<Array<string>>;
 export type Story = Array<string>;
+export type Images = Array<string>;
 export type Game = {
     graph: FlowGraph
     options: Options
     story: Story
+    images: Images
 };
 
 export const choices: FlowGraph = {
@@ -43,7 +45,7 @@ export const choices: FlowGraph = {
 
 
 
-export const choices_array: Array<Array<string>> = [
+export const choices_array: Options = [
     ["Search car for supplies", "Follow footsteps outside", "Run to hide"], // 0
     ["Rip up carseats with knife for more materials", "Follow the moving person further away"],          // 1
     ["Follow the moving person further away", "Run away toward open field", "Go to cave to scout for food"], // 2
@@ -68,7 +70,7 @@ export const choices_array: Array<Array<string>> = [
 
 
 
-export const story_array: Array<string> = 
+export const story_array: Story = 
    
 [
     "You wake up in a car, crashed, no idea how long it has been, no memory except basic motoric functions. You hear noises all-over.", // 0
@@ -93,9 +95,11 @@ export const story_array: Array<string> =
     "The bear is way stronger than you because you are so fatigued, you bleed out to the sunset and wonder if there is anything waiting for you on the other side", // 19 ENDING (du tog dig upp med branchen men i och med att du var så trött stöter du på en björn och dör)
 ];
 
+//export const story_images: Images = ["https://img.craftpix.net/2023/04/Free-Nature-Backgrounds-Pixel-Art2.png", "", ""];
 
 export const game_test: Game = {
     graph: choices,
     options: choices_array,
-    story: story_array
+    story: story_array,
+    images: Array(19).fill("https://img.craftpix.net/2023/04/Free-Nature-Backgrounds-Pixel-Art2.png")
 };

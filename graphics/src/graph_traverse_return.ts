@@ -10,10 +10,12 @@ import {
 export type FlowGraph = ListGraph;
 export type Options = Array<Array<string>>;
 export type Story = Array<string>;
+export type Images = Array<string>;
 export type Game = {
     graph: FlowGraph
     options: Options
     story: Story
+    images: Images
 };
 
 
@@ -21,11 +23,12 @@ export type Game = {
 export function vue_game(game: Game, currentNode: number, userNext: number) {
     const neighbors = game.graph.adj[currentNode];
     
-    if (!neighbors || neighbors === null) {
+    if (!neighbors || neighbors === null ) {
         return {
             nextNode: null, 
             current_options: [],
-            story: game.story[currentNode]
+            story: game.story[currentNode]!,
+            images: game.images[currentNode]!
         };
     }
 
@@ -35,7 +38,8 @@ export function vue_game(game: Game, currentNode: number, userNext: number) {
     return {
         nextNode, 
         current_options: game.options[currentNode],
-        story: game.story[currentNode]
+        story: game.story[currentNode]!,
+        images: game.images[currentNode]!
     };
 }
 
