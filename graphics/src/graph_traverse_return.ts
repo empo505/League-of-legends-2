@@ -7,7 +7,6 @@ import {
 } from '../lib/graphs.ts';
 
 
-// Type declarations
 export type FlowGraph = ListGraph;
 export type Options = Array<Array<string>>;
 export type Story = Array<string>;
