@@ -13,17 +13,17 @@
     gameActive.value = true;
   };
 
-const makeChoice = (index) => {
-  // index is 0, 1, 2... from v-for
-const result = vue_game(gameData.value, currentNode.value, index);  
-  if (result.nextNode === null) {
-    alert("The game is over!");
-    gameActive.value = false;
-  } else {
-    // Update the ref to the new node number
-    currentNode.value = result.nextNode;
-  }
-};
+  const makeChoice = (index) => {
+    // index is 0, 1, 2... from v-for
+  const result = vue_game(gameData.value, currentNode.value, index);  
+    if (result.nextNode === null) {
+      alert("The game is over!");
+      gameActive.value = false;
+    } else {
+      // Update the ref to the new node number
+      currentNode.value = result.nextNode;
+    }
+  };
   
 </script>
 
