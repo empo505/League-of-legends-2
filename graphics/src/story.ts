@@ -1,10 +1,10 @@
 import {
     type ListGraph
-} from './lib/graphs';
+} from '../lib/graphs';
 
 import {
     for_each, member, type List, list, head, tail, length, list_ref, is_null
-} from './lib/list';
+} from '../lib/list';
 
 export type FlowGraph = ListGraph;
 export type Options = Array<Array<string>>;
@@ -101,5 +101,5 @@ export const game_test: Game = {
     graph: choices,
     options: choices_array,
     story: story_array,
-    images: Array(19).fill("https://img.craftpix.net/2023/04/Free-Nature-Backgrounds-Pixel-Art2.png")
+    images: Array(20).fill("/background1.png")
 };
