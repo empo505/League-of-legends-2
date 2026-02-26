@@ -11,7 +11,9 @@
     "type-check": "vue-tsc --build"
   },
   "dependencies": {
-    "vue": "^3.5.28"
+    "vue": "^3.5.28",
+    "vue-audio-visual": "^3.0.11",
+    "vue-sound": "^0.1.10"
   },
   "devDependencies": {
     "@tsconfig/node24": "^24.0.4",
