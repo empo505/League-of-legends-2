@@ -17,6 +17,7 @@ export default {
 /* Your existing styles are perfect, keep them! */
 /* Inside Cbutton.vue <style scoped> */
 .hextech-button {
+  z-index: 10;
   background: rgba(45, 36, 25, 0.4); /* Dark see-through center */
   border: 2px solid #8B7355; /* Dark BurlyWood border */
   color: #8B7355;

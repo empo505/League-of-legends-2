@@ -3,10 +3,28 @@
   import {ref} from "vue";
   import {vue_game} from "./graph_traverse_return.ts";
   import {game_test} from "../story.ts";
+  import { computed } from 'vue';
+
+const backgroundStyle = computed(() => {
+  const path = game?.images?.[currentNode.value];
   
-  const gameData = ref(game_test);
+
+ 
+  
+  return {
+    backgroundImage: `url("${path}")`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    minHeight: '100vh',
+    minwidth: "100vw"
+  
+  };
+}); 
+  const game = game_test
+  const gameData = ref(game);
   const currentNode = ref(0);
   const gameActive = ref(false);
+  
 
   const startGame = () => {
     currentNode.value = 0;
@@ -28,8 +46,9 @@ const result = vue_game(gameData.value, currentNode.value, index);
 </script>
 
 <template>
-  <div class="game-wrapper">
-      <header class="game-header">
+ 
+<div class="game-wrapper" :style="backgroundStyle">  
+       <header class="game-header">
         <h1>SPEL</h1>
       </header>
     <main class="game-content">

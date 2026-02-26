@@ -1,6 +1,5 @@
 import {
-    list_ref,
-    type List
+    list_ref
 } from '../lib/list.ts';
 
 import {
@@ -11,15 +10,18 @@ import {
 export type FlowGraph = ListGraph;
 export type Options = Array<Array<string>>;
 export type Story = Array<string>;
+export type imageArray = string[]
 export type Game = {
     graph: FlowGraph
     options: Options
     story: Story
+    images: imageArray
 };
 type newRecord = {
     nextNode: number | null
     current_options: string[]
     story: string
+    image: string
 }
 
 
@@ -30,7 +32,8 @@ export function vue_game(game: Game, currentNode: number, userNext: number): new
         return {
             nextNode: null, 
             current_options: [],
-            story: String(game.story[currentNode])
+            story: String(game.story[currentNode]),
+            image: game.images[currentNode] ?? ""
         };
     }
 
@@ -40,7 +43,8 @@ export function vue_game(game: Game, currentNode: number, userNext: number): new
     return {
         nextNode, 
         current_options: game.options[currentNode] ?? [],
-        story: String(game.story[currentNode])
+        story: String(game.story[currentNode]),
+        image: game.images[currentNode] ?? ""
     };
 }
 
