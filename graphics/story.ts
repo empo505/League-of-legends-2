@@ -5,14 +5,18 @@ import {
 import {
     for_each, member, type List, list, head, tail, length, list_ref, is_null
 } from './lib/list';
+import { imageArray } from './src/graph_traverse_return';
+
 
 export type FlowGraph = ListGraph;
 export type Options = Array<Array<string>>;
 export type Story = Array<string>;
+
 export type Game = {
     graph: FlowGraph
     options: Options
     story: Story
+    images: imageArray
 };
 
 export const choices: FlowGraph = {
@@ -93,9 +97,19 @@ export const story_array: Array<string> =
     "The bear is way stronger than you because you are so fatigued, you bleed out to the sunset and wonder if there is anything waiting for you on the other side", // 19 ENDING (du tog dig upp med branchen men i och med att du var så trött stöter du på en björn och dör)
 ];
 
+export const test_images: string[] = 
+    ["/background2.webp", "/Taric.webp", "/background1.png", "/gragas.webp", "/Taric.webp", "/gräs.avif", "/gragas.webp", "/Taric.webp", "/gräs.avif", "/gragas.webp", "/Taric.webp", "/gräs.avif", "/gragas.webp", "/Taric.webp", "/gräs.avif", "/gragas.webp", "/Taric.webp", "/gräs.avif"]
+
+export const test_colors: string[] = [
+  "#0f0d0b", "#3b0a0a", "#8b4513", "#4b0082", "#006064",
+  "#1b5e20", "#b71c1c", "#2f4f4f", "#b8860b", "#f8f8ff",
+  "#191970", "#c2b280", "#00d2ff", "#a4c639", "#ff4500",
+  "#880e4f", "#708090", "#cd7f32", "#311b92"
+];
 
 export const game_test: Game = {
     graph: choices,
     options: choices_array,
-    story: story_array
+    story: story_array,
+    images: test_images
 };
