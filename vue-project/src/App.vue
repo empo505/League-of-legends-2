@@ -1,31 +1,17 @@
 <script setup>
   import Cbutton from "./components/Cbutton.vue";
-  import {ref, watch, computed} from "vue";
+  import {ref, watch} from "vue";
   import {vue_game} from "./graph_traverse_return.ts";
-  import {game_test} from "../story.ts";
+  import {game_test} from "../../story.ts";
   import {play_buttonsound, play_textsound, pause_textsound, textSound, buttonSound} from "./soundeffects.ts"
-
-const backgroundStyle = computed(() => {
-  const path = game?.images?.[currentNode.value];
-
-  return {
-    backgroundImage: `url("${path}")`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    minHeight: '100vh',
-    minwidth: "100vw"
   
-  };
-}); 
-
-  const game = game_test
-  const gameData = ref(game);
+  const gameData = ref(game_test);
   const currentNode = ref(0);
   const gameActive = ref(false);
   const displayedStory = ref("");
   let typewriterInterval = null;
 
-const typeWriter = (text) => {
+  const typeWriter = (text) => {
   
   clearInterval(typewriterInterval);
   displayedStory.value = "";
@@ -57,11 +43,10 @@ watch(gameActive, (active) => {
     gameActive.value = true;
   };
 
-  const makeChoice = (index) => {
-    // index is 0, 1, 2... from v-for
-
+const makeChoice = (index) => {
   play_buttonsound();
 
+  // index is 0, 1, 2... from v-for
   const result = vue_game(gameData.value, currentNode.value, index);  
     if (result.nextNode === null) {
       alert("The game is over!");
@@ -69,19 +54,16 @@ watch(gameActive, (active) => {
     } else {
       // Update the ref to the new node number
       currentNode.value = result.nextNode;
-    }
-  };
+  }
+};
   
 </script>
 
 <template>
- 
-<div class="game-wrapper" :style="backgroundStyle"> 
-
-    <audio ref ="buttonSound" src="/666herohero-click-21156.mp3"></audio>
-     <audio ref ="textSound" src="/freesound_community-text-sound-4-30218.mp3"></audio> 
-
-       <header class="game-header">
+  <div class="game-wrapper">
+    <audio ref ="buttonSound" src="/soundreality-mouse-click-sound-233951.mp3"></audio>
+     <audio ref ="textSound" src="/freesound_community-text-sound-4-30218.mp3"></audio>
+      <header class="game-header">
         <h1>SPEL</h1>
       </header>
     <main class="game-content">
@@ -103,7 +85,7 @@ watch(gameActive, (active) => {
           <span class="gold-text"> </span>{{ option }}
         </Cbutton>
       </div>
-    </div>
+      </div>
       </div>
     </div>
   </main>
