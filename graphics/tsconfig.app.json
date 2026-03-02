@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "types": ["jest", "node"],
     "target": "ESNext",
     "module": "ESNext",
     "moduleResolution": "node", 
@@ -8,8 +9,7 @@
     "jsx": "preserve",
     "esModuleInterop": true,
     "isolatedModules": true,
-    "lib": ["ESNext", "DOM"],
-    "types": ["jest", "node"]
+    "lib": ["ESNext", "DOM"]
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.vue"]
 }

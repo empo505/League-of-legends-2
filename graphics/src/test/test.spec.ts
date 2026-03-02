@@ -1,5 +1,8 @@
+/**
+ * @jest-environment jsdom
+ */
 import { mount } from '@vue/test-utils';
-import Cbutton from '../components/Cbutton.vue'; // Dubbelkolla sökvägen och stort C
+import Cbutton from '../components/Cbutton.vue';
 
 describe('Cbutton.vue', () => {
   it('renderar innehållet som skickas till slotten', () => {
