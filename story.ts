@@ -8,7 +8,7 @@ import {
 
 import {
     Game
-} from './graph_traverse';
+} from './vue-project/src/graph_traverse_return';
 export type FlowGraph = ListGraph;
 
 export const choices: FlowGraph = {
@@ -89,7 +89,7 @@ export const story_array: Array<string> =
     "The bear is way stronger than you because you are so fatigued, you bleed out to the sunset and wonder if there is anything waiting for you on the other side", // 19 ENDING (du tog dig upp med branchen men i och med att du var så trött stöter du på en björn och dör)
 ];
 
-export const game1: Game = {
+export const game_test: Game = {
     graph: choices,
     options: choices_array,
     story: story_array
