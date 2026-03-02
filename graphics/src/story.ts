@@ -1,21 +1,11 @@
 import {
-    type ListGraph
-} from '../lib/graphs';
+    list,
+} from '../lib/list.ts';
 
 import {
-    for_each, member, type List, list, head, tail, length, list_ref, is_null
-} from '../lib/list';
+    type FlowGraph, type Options, type Story, type Images, type Game
+} from "./graph_traverse_return.ts"
 
-export type FlowGraph = ListGraph;
-export type Options = Array<Array<string>>;
-export type Story = Array<string>;
-export type Images = Array<string>;
-export type Game = {
-    graph: FlowGraph
-    options: Options
-    story: Story
-    images: Images
-};
 
 export const choices: FlowGraph = {
     adj: [
@@ -70,9 +60,7 @@ export const choices_array: Options = [
 
 
 
-export const story_array: Story = 
-   
-[
+export const story_array: Story = [
     "You wake up in a car, crashed, no idea how long it has been, no memory except basic motoric functions. You hear noises all-over.", // 0
     "You search the car and find a only a knife, it could come in handy. You see a person moving furhter away", // 1
     "While following the footsteps you spot a person, but you also see a warning sign that says 'People are not people anymore'", // 2
@@ -95,11 +83,15 @@ export const story_array: Story =
     "The bear is way stronger than you because you are so fatigued, you bleed out to the sunset and wonder if there is anything waiting for you on the other side", // 19 ENDING (du tog dig upp med branchen men i och med att du var så trött stöter du på en björn och dör)
 ];
 
-//export const story_images: Images = ["https://img.craftpix.net/2023/04/Free-Nature-Backgrounds-Pixel-Art2.png", "", ""];
+export const images_array: Images = [
+    "/background1.png", "/background1.png", "/background1.png", "/background1.png", "/background1.png",
+    "/background1.png", "/background1.png", "/background1.png", "/background1.png", "/background1.png", "/background1.png", "/background1.png",
+    "/background1.png", "/background1.png", "/background1.png", "/background1.png", "/background1.png"
+];
 
 export const game_test: Game = {
     graph: choices,
     options: choices_array,
     story: story_array,
-    images: Array(20).fill("/background1.png")
+    images: images_array
 };
