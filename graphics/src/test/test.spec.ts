@@ -1,15 +1,33 @@
-
 import { mount } from '@vue/test-utils';
-import Counter from '../components/Cbutton.vue';
+import Cbutton from '../components/Cbutton.vue'; // Dubbelkolla sökvägen och stort C
 
 describe('Cbutton.vue', () => {
-  it('renderar startvärdet och ökar på klick', async () => {
-    const wrapper = mount(Counter);
+  it('renderar innehållet som skickas till slotten', () => {
+    const buttonText = 'KLICKA HÄR';
+    const wrapper = mount(Cbutton, {
+      slots: {
+        default: buttonText
+      }
+    });
 
-    const countEl = wrapper.get('[data-testid="count"]');
-    expect(countEl.text()).toBe('Count: 0');
+    // Kontrollera att texten finns inuti knappen
+    expect(wrapper.text()).toContain(buttonText);
+  });
 
-    await wrapper.get('[data-testid="inc"]').trigger('click');
-    expect(wrapper.get('[data-testid="count"]').text()).toBe('Count: 1');
+  it('skickar vidare klick-eventet (v-bind="$attrs")', async () => {
+    const wrapper = mount(Cbutton);
+
+    // Simulera ett klick på knappen
+    await wrapper.trigger('click');
+
+    // Kontrollera att ett 'click'-event har emitterats
+    expect(wrapper.emitted()).toHaveProperty('click');
+  });
+
+  it('har den korrekta CSS-klassen för styling', () => {
+    const wrapper = mount(Cbutton);
+    
+    // Kontrollera att den har hextech-klassen
+    expect(wrapper.classes()).toContain('hextech-button');
   });
 });
