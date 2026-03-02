@@ -1,5 +1,6 @@
 import {
-    list_ref
+    list_ref,
+
 } from '../lib/list.ts';
 
 import {
@@ -10,7 +11,7 @@ import {
 export type FlowGraph = ListGraph;
 export type Options = Array<Array<string>>;
 export type Story = Array<string>;
-export type imageArray = string[]
+export type imageArray = Array<string | string[]>;
 export type Game = {
     graph: FlowGraph
     options: Options
@@ -20,8 +21,8 @@ export type Game = {
 type newRecord = {
     nextNode: number | null
     current_options: string[]
-    story: string
-    image: string
+    story: string |string[]
+    image: string | string[]
 }
 
 
