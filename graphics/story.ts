@@ -35,14 +35,15 @@ export const choices: FlowGraph = {
         list(14, 16),       // 11
         list(15, 16),       // 12
         list(17, 18),       // 13
-        list(17, 19),       // 14
-        list(18, 19),       // 15
+        list(17, 20),       // 14
+        list(18, 20),       // 15
         list(17, 18),       // 16
-        list(),             // 17  ENDING
+        list(),             // 17  ENDING 
         list(),             // 18  ENDING
         list(),             // 19  ENDING
+        list(19)
     ],
-    size: 19
+    size: 20
 };
 
 
@@ -68,7 +69,7 @@ export const choices_array: Array<Array<string>> = [
     [],                          // 17 ENDING
     [],                          // 18 ENDING
     [],                          // 19 ENDING
-    []
+    ["Rest"]
 ];
 
 
@@ -97,10 +98,32 @@ export const story_array: Array<Array<string>> =
     ["The camp people are friendly! They take you in and care for you, you manage to survive this strange world happily ever after"], // 17
     ["As you keep wandering you stumble upon a house, it comes to you that it is your old house! There your family waits and you live happily ever after"], // 18
     ["BJÖÖÖÖÖÖÖÖRN", "The bear is way stronger than you because you are so fatigued, you bleed out to the sunset and wonder if there is anything waiting for you on the other side"] // 19
+    ,["You're exhausted but you manage use all of your strength to pull yourself on land", "As you lie on the ground you fell drowzy and contemplate wether you should rest to save your strength or keep moving to find shelter before nightfall"] // 20
 ]
 
 export const test_images: imageArray = 
-    [["/background2.webp", "/Taric.webp"], ["/Taric.webp"], ["/background1.png", "/grabbing branch.png"], ["/gragas.webp"], ["/Taric.webp"], ["/gräs.avif"], ["/gragas.webp"], ["/Taric.webp"], ["/gräs.avif"], ["/gragas.webp"], ["/Taric.webp"], ["/gräs.avif"], ["/gragas.webp"], ["/grabbing branch.png"], ["/grabbing branch.png"], ["/gragas.webp"], ["/Taric.webp"], ["/gräs.avif"],["/Taric.webp"], ["/bear-attack-sunset.png", "/sunset.png"]]
+    [["/background2.webp", "/Taric.webp"], //0
+     ["/Taric.webp"],//1
+      ["/background1.png", "/gräs.avif"], //2
+      ["/gragas.webp"], //3
+       ["/Taric.webp"], //4
+       ["/gräs.avif"],//5
+        ["/gragas.webp"],//6
+         ["/Taric.webp"],//7
+          ["/gräs.avif"],//8
+           ["/gragas.webp"],//9
+            ["/Taric.webp"],//10
+             ["/gräs.avif"], //11
+             ["/gragas.webp"],//12
+              ["/grab-branch-sunset.png"], //13
+              ["/grab-branch-sunset.png"], //14
+               ["/gragas.webp"], //15
+               ["/Taric.webp"],//16
+                ["/gräs.avif"],//17
+                ["/Taric.webp"],//18
+                 ["/bear-attck-sundown.png", "/sunset.png"],///19
+                  ["lying-on-back.png", "falling-asleep.png"] //20
+                ]
 
 export const test_colors: string[] = [
   "#0f0d0b", "#3b0a0a", "#8b4513", "#4b0082", "#006064",

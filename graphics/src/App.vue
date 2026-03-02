@@ -19,11 +19,11 @@ const backgroundStyle = computed(() => {
   
   return {
     backgroundImage: `url("${path}")`,
-    backgroundSize: 'cover',
+    backgroundSize: 'contain',
     backgroundPosition: 'center',
     minHeight: '100vh',
-    minwidth: "100vw"
-  
+    minwidth: "100vw",
+  backgroundRepeat: 'no-repeat',
   };
 }); 
   const game = game_test

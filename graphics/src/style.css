@@ -19,6 +19,7 @@ body {
   display: flex;
   flex-direction: column;
   background: radial-gradient#1a1612;
+  position: relative;
 }
 
 .game-header h1 {
