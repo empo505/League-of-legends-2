@@ -1,8 +1,8 @@
 
 import { mount } from '@vue/test-utils';
-import Counter from '../components/Counter.vue';
+import Counter from '../components/Cbutton.vue';
 
-describe('Counter.vue', () => {
+describe('Cbutton.vue', () => {
   it('renderar startvärdet och ökar på klick', async () => {
     const wrapper = mount(Counter);
 
