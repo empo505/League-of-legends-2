@@ -63,7 +63,6 @@ const result = vue_game(gameData.value, currentNode.value, index);
         <h1>SPEL</h1>
       </header>
     <main class="game-content">
-      <div>{{ gameData.graph.adj[currentNode] }}, {{ imageIndex }}</div>
     <div v-if="!gameActive" class="start-screen">
       <h2>Welcome to game!</h2>
       <Cbutton @click="startGame">Press to play!</Cbutton>
