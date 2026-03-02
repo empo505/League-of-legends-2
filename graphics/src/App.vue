@@ -1,16 +1,14 @@
 <script setup>
   import Cbutton from "./components/Cbutton.vue";
-  import {ref} from "vue";
+  import {ref, watch} from "vue";
   import {vue_game} from "./graph_traverse_return.ts";
   import {game_test} from "../story.ts";
   import { computed } from 'vue';
+  import {play_buttonsound, play_textsound, pause_textsound, textSound, buttonSound} from "./soundeffects.ts"
 
 const backgroundStyle = computed(() => {
   const path = game?.images?.[currentNode.value];
-  
 
- 
-  
   return {
     backgroundImage: `url("${path}")`,
     backgroundSize: 'cover',
@@ -25,6 +23,34 @@ const backgroundStyle = computed(() => {
   const currentNode = ref(0);
   const gameActive = ref(false);
   
+  let typewriterInterval = null;
+
+  const typeWriter = (text) => {
+  
+  clearInterval(typewriterInterval);
+  displayedStory.value = "";
+
+  play_textsound();
+  
+  let i = 0;
+  typewriterInterval = setInterval(() => {
+    if (i < text.length) {
+      displayedStory.value += text.charAt(i);
+      i++;
+    } else {
+      clearInterval(typewriterInterval);
+      pause_textsound();
+    }
+  }, 20);
+};
+
+watch(currentNode, (newNode) => {
+  typeWriter(gameData.value.story[newNode]);
+});
+
+watch(gameActive, (active) => {
+  if (active) typeWriter(gameData.value.story[currentNode.value]);
+});
 
   const startGame = () => {
     currentNode.value = 0;
@@ -47,7 +73,11 @@ const backgroundStyle = computed(() => {
 
 <template>
  
-<div class="game-wrapper" :style="backgroundStyle">  
+<div class="game-wrapper" :style="backgroundStyle"> 
+  
+    <audio ref ="buttonSound" src="/soundreality-mouse-click-sound-233951.mp3"></audio>
+     <audio ref ="textSound" src="/freesound_community-text-sound-4-30218.mp3"></audio> 
+
        <header class="game-header">
         <h1>SPEL</h1>
       </header>
