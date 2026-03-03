@@ -1,10 +1,10 @@
 import {
     list_ref
-} from '../lib/list.ts';
+} from '../lib/list';
 
 import {
     type ListGraph
-} from '../lib/graphs.ts';
+} from '../lib/graphs';
 
 
 export type FlowGraph = ListGraph;
