@@ -50,7 +50,7 @@ export const choices: FlowGraph = {
 
 export const choices_array: Array<Array<string>> = [
     ["Search car for supplies", "Follow footsteps outside", "Run to hide"], // 0
-    ["Rip up carseats with knife for more materials", "Follow the moving person further away"],          // 1
+    ["Gather strength to confront the looming silhuette", "Go outside and gesture the stranger you don't mean harm", "Jump over to the passenger seat and run to the woods"],          // 1
     ["Follow the moving person further away", "Run away toward open field", "Go to cave to scout for food"], // 2
     ["Run away toward open field", "Go to cave to scout for food"],          // 3
     ["Cover yourself in leather and now approach the person", "Cover the car in leather and setup camp"],          // 4
@@ -78,11 +78,17 @@ export const choices_array: Array<Array<string>> = [
 export const story_array: Array<Array<string>> = 
    
 [
-    ["You wake up in a car, crashed, no idea how long it has been, no memory except basic motoric functions. You hear noises all-over.", "PENIS"], // 0
-    ["You search the car and find a only a knife, it could come in handy. You see a person moving furhter away"], // 1
+    ["You wake up in a car, crashed, no idea how long it has been, no memory except basic motoric functions. You hear noises all-over.", //0.0
+    "Disoriented and with with a lingering paranoia you think to yoyrself how you could have ended up in this situation. Did you faint?... is there someone after you?... Or could it be something worse?", //0.1
+     "You suddenly hear faint footsteps outside, there is someone... or something standing in the distance. You have to act fast, what you choose to do could have fatal consequences!"], // 0.2
+    ["You search the car and find a only a knife, it could come in handy. You look outside once again and see the dark silhuette getting closer and closer to you.", //1.0
+    "It strikes you, the person slowly limping towards you could be hurt or mabye just as confused as you are right now. On the other hand... is it really worth risking your life to potentially help a stranger?"], // 1.1
     ["While following the footsteps you spot a person, but you also see a warning sign that says 'People are not people anymore'", "SNOPP"], // 2
     ["As you run to hide you stumble upon a cave, while catching your breath you see a person in the forest, they look strange, further away you see an open field"], // 3
-    ["You now have leather from the carseats, what do you want to do with the leather?"], // 4
+    ["As you get closer you see the figure is a completely normal person. However, it is too late to be friendly now as the person seems to have taken your threatening gesture as an act of violence!?" //4.0
+        ,"He suddenly lunges towards you and reaches for the weapon in your hand. The two of you fall in the tall grass in front of the car and you feel a warm liquid start to form on the side of your body, then a paralyzing pain.", //4.1
+    "" //4.2
+], // 4
     ["As you follow the person and come closer, it does not seem like a normal person, you wonder if it is safe to approach them"], // 5
     ["You move towards the open field, with broken trees and weird trails on the ground, you find a ruined campsite with a walkie talkie, you pick it up and analyse the camp, you could stay here"], // 6
     ["In the cave you find a bunch of edible mushrooms and an old fireplace to grill at, you manage to start a fire"], // 7
@@ -102,8 +108,8 @@ export const story_array: Array<Array<string>> =
 ]
 
 export const test_images: imageArray = 
-    [["/background2.webp", "/Taric.webp"], //0
-     ["/Taric.webp"],//1
+    [["/crashed-car-ugly.png", "/car-noperson.png", "/person-further.png"], //0
+     ["/Taric.webp", "/gräs.avif"],//1
       ["/background1.png", "/gräs.avif"], //2
       ["/gragas.webp"], //3
        ["/Taric.webp"], //4
@@ -121,7 +127,7 @@ export const test_images: imageArray =
                ["/Taric.webp"],//16
                 ["/gräs.avif"],//17
                 ["/Taric.webp"],//18
-                 ["/bear-attck-sundown.png", "/sunset.png"],///19
+                 ["/bear-attck-sundown.png", "/sunset-dying.png"],///19
                   ["lying-on-back.png", "falling-asleep.png"] //20
                 ]
 

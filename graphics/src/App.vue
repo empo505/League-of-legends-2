@@ -43,6 +43,7 @@ const backgroundStyle = computed(() => {
   const stopGame = () => {
     gameActive.value = false;
     currentNode.value = 0;
+    imageIndex.value = 0;
   }
 
 const makeChoice = (index) => {
@@ -69,12 +70,12 @@ const result = vue_game(gameData.value, currentNode.value, index);
     </div>
 
     <div v-else class="story-screen">
-      <div class content-area>
+      
       <div class="story-card">
       <p>{{ gameData.story[currentNode][imageIndex] }}</p>
       </div>
       
-    </div>
+  
       <div class="options-outer-bar">
         <div v-if="imageIndex + 1 < game.images[currentNode].length">
         <Cbutton @click="nextImage">Next</Cbutton>
