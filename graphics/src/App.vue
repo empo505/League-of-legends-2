@@ -1,112 +1,159 @@
 <script setup>
-  import Cbutton from "./components/Cbutton.vue";
   import {ref, watch, computed} from "vue";
+  import {play_soundfile, pause_soundfile, textSound, buttonSound} from "./soundeffects-2.ts"
+  import {game_test} from "./story.ts";
   import {vue_game} from "./graph_traverse_return.ts";
-  import {game_test} from "../story.ts";
-  import {play_buttonsound, play_textsound, pause_textsound, textSound, buttonSound} from "./soundeffects.ts"
+  import Cbutton from "./components/Cbutton.vue";
 
-const backgroundStyle = computed(() => {
-  const path = game?.images?.[currentNode.value];
-
-  return {
-    backgroundImage: `url("${path}")`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    minHeight: '100vh',
-    minwidth: "100vw"
-  
-  };
-}); 
-
-  const game = game_test
+  const game = game_test;
   const gameData = ref(game);
-  const currentNode = ref(0);
   const gameActive = ref(false);
+  const currentNode = ref(0);
   const displayedStory = ref("");
+  const imageIndex = ref(0);
   let typewriterInterval = null;
 
-const typeWriter = (text) => {
-  
-  clearInterval(typewriterInterval);
-  displayedStory.value = "";
+  // Updates the image index 
+  const nextImage = () => {
+    play_soundfile(buttonSound);  
+    imageIndex.value++
+  };
 
-  play_textsound();
-  
-  let i = 0;
-  typewriterInterval = setInterval(() => {
-    if (i < text.length) {
-      displayedStory.value += text.charAt(i);
-      i++;
+  // Function that goes through the image array and updates the background pictures
+  const backgroundStyle = computed(() => {
+    let path;
+    if (Array.isArray(gameData.value.images[currentNode.value])) {
+      path = gameData.value.images[currentNode.value][imageIndex.value]; 
     } else {
-      clearInterval(typewriterInterval);
-      pause_textsound();
+      path = gameData.value.images[currentNode.value];
     }
-  }, 20);
-};
+    return {
+      backgroundImage: `url("${path}")`,
+      backgroundSize: 'contain',
+      backgroundPosition: 'center',
+      minHeight: '100vh',
+      minwidth: "100vw",
+      backgroundRepeat: 'no-repeat',
+    };
+  }); 
 
-watch(currentNode, (newNode) => {
-  typeWriter(gameData.value.story[newNode]);
-});
-
-watch(gameActive, (active) => {
-  if (active) typeWriter(gameData.value.story[currentNode.value]);
-});
-
+  // Starts the game
   const startGame = () => {
     currentNode.value = 0;
     gameActive.value = true;
   };
 
-  const makeChoice = (index) => {
-    // index is 0, 1, 2... from v-for
-
-  play_buttonsound();
-
-  const result = vue_game(gameData.value, currentNode.value, index);  
-    if (result.nextNode === null) {
-      alert("The game is over!");
-      gameActive.value = false;
-    } else {
-      // Update the ref to the new node number
-      currentNode.value = result.nextNode;
-    }
+  // Stops the game
+  const stopGame = () => {
+    gameActive.value = false;
+    currentNode.value = 0;
+    imageIndex.value = 0;
+    displayedStory.value = "";
   };
+
+  // Plays the game and when the game is over resets it
+  const makeChoice = (index) => {
+    play_soundfile(buttonSound);
+    const result = vue_game(gameData.value, currentNode.value, index);
+    currentNode.value = result.nextNode;
+    imageIndex.value = 0;
+  };
+
+  // Makes the text come one letter at the time and puts sound over it
+  const typeWriter = (text) => {
+    if (typewriterInterval) {
+      clearInterval(typewriterInterval);
+      typewriterInterval = null;
+    }
+    pause_soundfile(textSound);
+
+    if (!text || !gameActive.value) {
+      displayedStory.value = "";
+      return;
+    }
+
+    displayedStory.value = "";
+    let i = 0;
+
+    play_soundfile(textSound);
+
+    typewriterInterval = setInterval(() => {
+      if (i < text.length) {
+        displayedStory.value += text.charAt(i);
+        i++;
+      } else {
+        clearInterval(typewriterInterval);
+        typewriterInterval = null;
+        pause_soundfile(textSound);
+      }
+    }, 25);
+  };
+
+  // Runs typewriter when node updates, except for the starting node
+  watch(currentNode, (newNode) => {
+      imageIndex.value = 0; 
+      typeWriter(gameData.value.story[newNode][0]);
+    });
   
+  // Runs typewriter when clicking on "Next"
+  watch(imageIndex, (newIdx) => {
+    const currentStoryArray = gameData.value.story[currentNode.value];
+    if (currentStoryArray && currentStoryArray[newIdx]) {
+      typeWriter(currentStoryArray[newIdx]);
+    }
+  });
+
+  // Starts the first text when the game is activated 
+  watch(gameActive, (active) => {
+    if (active) {
+      typeWriter(gameData.value.story[currentNode.value][imageIndex.value]);
+    }
+  });
 </script>
 
+
 <template>
- 
-<div class="game-wrapper" :style="backgroundStyle"> 
-
+  
+  <div class="game-wrapper" :style="backgroundStyle">
     <audio ref ="buttonSound" src="/666herohero-click-21156.mp3"></audio>
-     <audio ref ="textSound" src="/freesound_community-text-sound-4-30218.mp3"></audio> 
+    <audio ref ="textSound" src="/freesound_community-text-sound-4-30218.mp3"></audio>
 
-       <header class="game-header">
-        <h1>SPEL</h1>
-      </header>
+    <header class="game-header">
+      <h1>SPEL</h1>
+    </header>
+
     <main class="game-content">
-    <div v-if="!gameActive" class="start-screen">
-      <h2>Welcome to game!</h2>
-      <Cbutton @click="startGame">Press to play!</Cbutton>
-    </div>
+      <div v-if="!gameActive" class="start-screen">
+        <h2>Welcome to game!</h2>
+          <Cbutton @click="startGame">Press to play!</Cbutton>
+      </div>
 
-    <div v-else class="story-screen">
-      <div class content-area>
-      <div class="story-card">
-      <p>{{ displayedStory }}</p>
+      <div v-else class="story-screen">
+          <div class="story-card">
+            <p>{{ displayedStory }}</p>
+          </div>
+
+        <div class="options-outer-bar">
+          <div v-if="imageIndex + 1 < game.images[currentNode].length">
+            <Cbutton @click="nextImage">Next</Cbutton>
+          </div>
+
+          <div v-else>
+            <div v-if="gameData.options[currentNode]?.length > 0" class="options-container">
+              <div v-for="(option, i) in gameData.options[currentNode]" :key="i" class="option-item">
+                <Cbutton @click="makeChoice(i)">
+                  <span class="gold-text"> </span>
+                  {{ option }}
+                </Cbutton>
+              </div>
+            </div>
+
+            <div v-else>
+              <Cbutton @click="stopGame">OKEY</Cbutton>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-      <div class="options-outer-bar">
-      <div class="options-container">
-      <div v-for="(option, i) in gameData.options[currentNode]" :key="i" class="option-item">
-        <Cbutton @click="makeChoice(i)">
-          <span class="gold-text"> </span>{{ option }}
-        </Cbutton>
-      </div>
-    </div>
-      </div>
-    </div>
-  </main>
-</div>
+    </main>
+  </div>
 </template>
-
