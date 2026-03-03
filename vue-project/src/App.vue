@@ -3,7 +3,7 @@
   import {ref, watch} from "vue";
   import {vue_game} from "./graph_traverse_return.ts";
   import {game_test} from "../../story.ts";
-  import {play_buttonsound, play_textsound, pause_textsound, textSound, buttonSound} from "./soundeffects.ts"
+  import {play_soundfile, pause_soundfile, textSound, buttonSound} from "./soundeffects.ts"
   
   const gameData = ref(game_test);
   const currentNode = ref(0);
@@ -13,21 +13,21 @@
 
   const typeWriter = (text) => {
   
-  clearInterval(typewriterInterval);
-  displayedStory.value = "";
+    clearInterval(typewriterInterval);
+    displayedStory.value = "";
+    let i = 0;
 
-  play_textsound();
-  
-  let i = 0;
-  typewriterInterval = setInterval(() => {
-    if (i < text.length) {
-      displayedStory.value += text.charAt(i);
-      i++;
-    } else {
-      clearInterval(typewriterInterval);
-      pause_textsound();
-    }
-  }, 20);
+    play_soundfile(textSound)
+
+    typewriterInterval = setInterval(() => {
+      if (i < text.length) {
+        displayedStory.value += text.charAt(i);
+        i++;
+      } else {
+        clearInterval(typewriterInterval);
+        pause_soundfile(textSound);
+      }
+    }, 20);
 };
 
 watch(currentNode, (newNode) => {
@@ -44,7 +44,7 @@ watch(gameActive, (active) => {
   };
 
 const makeChoice = (index) => {
-  play_buttonsound();
+  play_soundfile(buttonSound);
 
   // index is 0, 1, 2... from v-for
   const result = vue_game(gameData.value, currentNode.value, index);  

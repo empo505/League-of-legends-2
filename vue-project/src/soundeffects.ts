@@ -1,28 +1,18 @@
-import {ref} from "vue";
+import {ref, type Ref} from "vue";
 
-export const buttonSound = ref<HTMLAudioElement | null>(null);
-export const textSound = ref<HTMLAudioElement | null>(null);
+export const textSound = ref<HTMLAudioElement | null>(null)
+export const buttonSound = ref<HTMLAudioElement | null>(null)
 
-export function play_textsound() {
-    if (textSound.value) {
-    textSound.value.currentTime = 0;
-    textSound.value.play();
+export function play_soundfile(soundfile: Ref<HTMLAudioElement | null>) {
+  if (soundfile.value) {
+    soundfile.value.currentTime = 0;
+    soundfile.value.play();
   }
-  return play_textsound;
-};
+}
 
-export function pause_textsound() {
-    if (textSound.value) {
-    textSound.value.pause();
-    textSound.value.currentTime = 0;
+export function pause_soundfile(soundfile: Ref<HTMLAudioElement | null>) {
+    if (soundfile.value) {
+    soundfile.value.pause();
+    soundfile.value.currentTime = 0;
   }
-  return pause_textsound;
-};
-
-export function play_buttonsound() {
-    if (buttonSound.value) {
-    buttonSound.value.currentTime = 0.1;
-    buttonSound.value.play();
-  }
-  return play_buttonsound;
 };
