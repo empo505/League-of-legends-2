@@ -26,6 +26,7 @@ export default {
   text-transform: uppercase;
   letter-spacing: 2px;
   transition: all 0.25s ease-in-out;
+  z-index: 10;
 }
 
 .hextech-button:hover {
