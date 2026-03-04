@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1772628211724" clover="3.2.0">
+  <project timestamp="1772628211724" name="All files">
+    <metrics statements="187" coveredstatements="126" conditionals="116" coveredconditionals="38" methods="71" coveredmethods="26" elements="374" coveredelements="190" complexity="0" loc="187" ncloc="187" packages="3" files="6" classes="6"/>
+    <package name="lib">
+      <metrics statements="71" coveredstatements="31" conditionals="44" coveredconditionals="3" methods="38" coveredmethods="6"/>
+      <file name="list.ts" path="/Users/alvaaxelsson/project/League-of-legends-2/graphics/lib/list.ts">
+        <metrics statements="71" coveredstatements="31" conditionals="44" coveredconditionals="3" methods="38" coveredmethods="6"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="28" count="38" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+        <line num="38" count="13" type="stmt"/>
+        <line num="47" count="1" type="stmt"/>
+        <line num="48" count="8" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="58" count="21" type="stmt"/>
+        <line num="69" count="1" type="stmt"/>
+        <line num="70" count="21" type="stmt"/>
+        <line num="71" count="21" type="stmt"/>
+        <line num="72" count="38" type="stmt"/>
+        <line num="74" count="21" type="stmt"/>
+        <line num="85" count="0" type="stmt"/>
+        <line num="95" count="1" type="stmt"/>
+        <line num="97" count="0" type="stmt"/>
+        <line num="98" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="102" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="103" count="0" type="stmt"/>
+        <line num="105" count="0" type="stmt"/>
+        <line num="117" count="1" type="stmt"/>
+        <line num="119" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="121" count="0" type="stmt"/>
+        <line num="134" count="1" type="stmt"/>
+        <line num="136" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="140" count="0" type="stmt"/>
+        <line num="152" count="1" type="stmt"/>
+        <line num="155" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="159" count="0" type="stmt"/>
+        <line num="171" count="1" type="stmt"/>
+        <line num="172" count="0" type="stmt"/>
+        <line num="173" count="0" type="stmt"/>
+        <line num="174" count="0" type="stmt"/>
+        <line num="186" count="1" type="stmt"/>
+        <line num="188" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="192" count="0" type="stmt"/>
+        <line num="204" count="1" type="stmt"/>
+        <line num="207" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="209" count="0" type="stmt"/>
+        <line num="211" count="0" type="stmt"/>
+        <line num="224" count="1" type="stmt"/>
+        <line num="225" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="242" count="1" type="stmt"/>
+        <line num="245" count="0" type="stmt"/>
+        <line num="246" count="0" type="stmt"/>
+        <line num="247" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="253" count="0" type="stmt"/>
+        <line num="265" count="1" type="stmt"/>
+        <line num="268" count="0" type="stmt"/>
+        <line num="269" count="0" type="stmt"/>
+        <line num="270" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="276" count="0" type="stmt"/>
+        <line num="289" count="1" type="stmt"/>
+        <line num="292" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="298" count="0" type="stmt"/>
+        <line num="309" count="1" type="stmt"/>
+        <line num="310" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="321" count="1" type="stmt"/>
+        <line num="324" count="0" type="stmt"/>
+        <line num="325" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="329" count="0" type="stmt"/>
+        <line num="342" count="1" type="stmt"/>
+        <line num="343" count="21" type="cond" truecount="1" falsecount="1"/>
+        <line num="364" count="1" type="stmt"/>
+        <line num="369" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="371" count="0" type="stmt"/>
+        <line num="373" count="0" type="stmt"/>
+        <line num="391" count="1" type="stmt"/>
+        <line num="394" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="406" count="1" type="stmt"/>
+        <line num="407" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="src">
+      <metrics statements="106" coveredstatements="85" conditionals="72" coveredconditionals="35" methods="32" coveredmethods="19"/>
+      <file name="App.vue" path="/Users/alvaaxelsson/project/League-of-legends-2/graphics/src/App.vue">
+        <metrics statements="82" coveredstatements="62" conditionals="57" coveredconditionals="27" methods="29" coveredmethods="16"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="29" count="3" type="stmt"/>
+        <line num="32" count="3" type="stmt"/>
+        <line num="37" count="3" type="stmt"/>
+        <line num="44" count="3" type="stmt"/>
+        <line num="51" count="3" type="stmt"/>
+        <line num="58" count="3" type="stmt"/>
+        <line num="65" count="3" type="stmt"/>
+        <line num="70" count="3" type="stmt"/>
+        <line num="73" count="3" type="stmt"/>
+        <line num="84" count="1" type="stmt"/>
+        <line num="90" count="3" type="stmt"/>
+        <line num="96" count="4" type="stmt"/>
+        <line num="97" count="4" type="stmt"/>
+        <line num="108" count="3" type="stmt"/>
+        <line num="109" count="2" type="stmt"/>
+        <line num="110" count="2" type="stmt"/>
+        <line num="114" count="3" type="stmt"/>
+        <line num="115" count="0" type="stmt"/>
+        <line num="116" count="0" type="stmt"/>
+        <line num="117" count="0" type="stmt"/>
+        <line num="118" count="0" type="stmt"/>
+        <line num="122" count="3" type="stmt"/>
+        <line num="135" count="0" type="stmt"/>
+        <line num="140" count="0" type="stmt"/>
+        <line num="141" count="0" type="stmt"/>
+        <line num="145" count="3" type="stmt"/>
+        <line num="146" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="147" count="1" type="stmt"/>
+        <line num="148" count="1" type="stmt"/>
+        <line num="160" count="3" type="cond" truecount="3" falsecount="1"/>
+        <line num="161" count="0" type="stmt"/>
+        <line num="162" count="0" type="stmt"/>
+        <line num="164" count="3" type="stmt"/>
+        <line num="165" count="3" type="stmt"/>
+        <line num="176" count="3" type="stmt"/>
+        <line num="177" count="68" type="cond" truecount="2" falsecount="0"/>
+        <line num="178" count="67" type="stmt"/>
+        <line num="179" count="67" type="stmt"/>
+        <line num="181" count="1" type="stmt"/>
+        <line num="182" count="1" type="stmt"/>
+        <line num="232" count="3" type="stmt"/>
+        <line num="240" count="0" type="stmt"/>
+        <line num="243" count="0" type="stmt"/>
+        <line num="267" count="0" type="stmt"/>
+        <line num="272" count="0" type="stmt"/>
+        <line num="277" count="219" type="stmt"/>
+        <line num="282" count="219" type="stmt"/>
+        <line num="287" count="0" type="stmt"/>
+        <line num="292" count="0" type="stmt"/>
+        <line num="302" count="3" type="stmt"/>
+        <line num="306" count="3" type="stmt"/>
+        <line num="311" count="1" type="stmt"/>
+        <line num="314" count="1" type="stmt"/>
+        <line num="315" count="1" type="stmt"/>
+        <line num="316" count="5" type="cond" truecount="1" falsecount="3"/>
+        <line num="317" count="0" type="stmt"/>
+        <line num="318" count="0" type="cond" truecount="0" falsecount="15"/>
+        <line num="319" count="0" type="cond" truecount="0" falsecount="5"/>
+        <line num="320" count="5" type="cond" truecount="1" falsecount="1"/>
+        <line num="321" count="5" type="cond" truecount="2" falsecount="1"/>
+        <line num="322" count="1" type="stmt"/>
+        <line num="326" count="1" type="stmt"/>
+        <line num="330" count="1" type="stmt"/>
+        <line num="333" count="1" type="stmt"/>
+        <line num="337" count="1" type="stmt"/>
+        <line num="341" count="1" type="stmt"/>
+        <line num="344" count="1" type="stmt"/>
+        <line num="347" count="1" type="stmt"/>
+        <line num="351" count="1" type="stmt"/>
+        <line num="354" count="1" type="stmt"/>
+        <line num="358" count="1" type="stmt"/>
+        <line num="364" count="73" type="stmt"/>
+        <line num="373" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="380" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="384" count="18" type="stmt"/>
+        <line num="389" count="0" type="stmt"/>
+        <line num="393" count="18" type="stmt"/>
+        <line num="401" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="405" count="1" type="stmt"/>
+      </file>
+      <file name="graph_traverse_return.ts" path="/Users/alvaaxelsson/project/League-of-legends-2/graphics/src/graph_traverse_return.ts">
+        <metrics statements="7" coveredstatements="6" conditionals="13" coveredconditionals="6" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="35" count="1" type="stmt"/>
+        <line num="36" count="13" type="stmt"/>
+        <line num="38" count="13" type="cond" truecount="2" falsecount="1"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="46" count="13" type="stmt"/>
+        <line num="47" count="13" type="stmt"/>
+      </file>
+      <file name="soundeffects-2.ts" path="/Users/alvaaxelsson/project/League-of-legends-2/graphics/src/soundeffects-2.ts">
+        <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="15" count="4" type="stmt"/>
+        <line num="16" count="4" type="stmt"/>
+      </file>
+      <file name="story.ts" path="/Users/alvaaxelsson/project/League-of-legends-2/graphics/src/story.ts">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="63" count="1" type="stmt"/>
+        <line num="87" count="1" type="stmt"/>
+        <line num="112" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components">
+      <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="Cbutton.vue" path="/Users/alvaaxelsson/project/League-of-legends-2/graphics/src/components/Cbutton.vue">
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="23" count="23" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

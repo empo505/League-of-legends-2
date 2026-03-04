@@ -1,7 +1,8 @@
 import { mount } from '@vue/test-utils'
 import App from '../App.vue'
 import { vue_game } from '../graph_traverse_return'; 
-import { game_test } from '../../story'; 
+import { game_test } from '../story'; 
+import Cbutton from '../components/Cbutton.vue';
 
 const timer = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
 
@@ -27,7 +28,7 @@ describe('Tests functions', () => {
 
     const steg5 = vue_game(game_test, 13, 0);
     expect(steg5.nextNode).toBe(17);
-    expect(game_test.story[17]).toContain("The camp people are friendly");
+    expect(game_test.story[17]).toStrictEqual(["The camp people are friendly! They take you in and care for you, you manage to survive this strange world happily ever after"]);
   });
 
   test('Path that leads to node 18', () => {
@@ -45,19 +46,19 @@ describe('Tests functions', () => {
 
     const steg5 = vue_game(game_test, 16, 1);
     expect(steg5.nextNode).toBe(18);
-    expect(game_test.story[18]).toContain("stumble upon a house, it comes to you that it is your old house");
+    expect(game_test.story[18]).toStrictEqual(["As you keep wandering you stumble upon a house, it comes to you that it is your old house! There your family waits and you live happily ever after"]);
   });
 
   test('Background changer works', () => {
 
     const startNode = vue_game(game_test, 0, 0); 
-    expect(startNode.image).toBe("/background2.webp");
+    expect(startNode.image).toStrictEqual(["/background2.webp", "/background2.webp"]);
 
     const stepToNode2 = vue_game(game_test, 0, 1);
     expect(stepToNode2.nextNode).toBe(2);
     const nextImage = game_test.images[stepToNode2.nextNode!]
  
-    expect(nextImage).toBe("/background1.png");
+    expect(nextImage).toStrictEqual(["/background1.png", "/gräs.avif"]);
   });
 
   test('Returns empty string if no background image exists', () => {
@@ -67,7 +68,7 @@ describe('Tests functions', () => {
     };
 
     const result = vue_game(brokenGame, 0, 0);
-    expect(result.image).toBe("");
+    expect(result.image).toStrictEqual([]);
 
   });
 
@@ -97,10 +98,10 @@ describe('Tests functions', () => {
     const firstNodeText = wrapper.find('.story-card').text()
     expect(firstNodeText).not.toBe("")
 
-    const options = wrapper.findAll('.option-item button')
-    expect(options.length).toBeGreaterThan(0)
+    const nextbutton = wrapper.findComponent({ name: 'Cbutton'})
+    expect(nextbutton.exists()).toBe(true)
 
-    await options[0].trigger('click')
+    await nextbutton.trigger('click')
 
     await timer(500)
 

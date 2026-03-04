@@ -61,9 +61,9 @@ export const choices_array: Options = [
 ];
 
 export const story_array: Story = [
-    ["You wake up in a car, crashed, no idea how long it has been, no memory except basic motoric functions. You hear noises all-over.", "PENIS"], // 0
+    ["You wake up in a car, crashed, no idea how long it has been, no memory except basic motoric functions. You hear noises all-over.", "Empty"], // 0
     ["You search the car and find a only a knife, it could come in handy. You see a person moving furhter away"], // 1
-    ["While following the footsteps you spot a person, but you also see a warning sign that says 'People are not people anymore'", "SNOPP"], // 2
+    ["While following the footsteps you spot a person, but you also see a warning sign that says 'People are not people anymore'", "Empty"], // 2
     ["As you run to hide you stumble upon a cave, while catching your breath you see a person in the forest, they look strange, further away you see an open field"], // 3
     ["You now have leather from the carseats, what do you want to do with the leather?"], // 4
     ["As you follow the person and come closer, it does not seem like a normal person, you wonder if it is safe to approach them"], // 5
@@ -85,27 +85,27 @@ export const story_array: Story = [
 ];
 
 export const test_images: Images = 
-    [["/background2.webp", "/Taric.webp"], //0
-     ["/Taric.webp"],//1
+    [["/background2.webp", "/background2.webp"], //0
+     ["/background2.webp"],//1
       ["/background1.png", "/gräs.avif"], //2
-      ["/gragas.webp"], //3
-       ["/Taric.webp"], //4
-       ["/gräs.avif"],//5
-        ["/gragas.webp"],//6
-         ["/Taric.webp"],//7
+      ["/background2.webp"], //3
+       ["/background2.webp"], //4
+       ["/background2.webp"],//5
+        ["/background2.webp"],//6
+         ["/background2.webp"],//7
           ["/gräs.avif"],//8
-           ["/gragas.webp"],//9
-            ["/Taric.webp"],//10
+           ["/background2.webp"],//9
+            ["/background2.webp"],//10
              ["/gräs.avif"], //11
-             ["/gragas.webp"],//12
-              ["/grab-branch-sunset.png"], //13
-              ["/grab-branch-sunset.png"], //14
-               ["/gragas.webp"], //15
-               ["/Taric.webp"],//16
+             ["/background2.webp"],//12
+              ["/background2.webp"], //13
+              ["/background2.webp"], //14
+               ["/background2.webp"], //15
+               ["/background2.webp"],//16
                 ["/gräs.avif"],//17
-                ["/Taric.webp"],//18
-                 ["/bear-attck-sundown.png", "/sunset.png"],///19
-                  ["lying-on-back.png", "falling-asleep.png"] //20
+                ["/background2.webp"],//18
+                 ["/background2.webp", "/background2.webp"],///19
+                  ["/background2.webp", "/background2.webp"] //20
 ];
 
 

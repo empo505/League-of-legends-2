@@ -22,11 +22,7 @@
   // Function that goes through the image array and updates the background pictures
   const backgroundStyle = computed(() => {
     let path;
-    if (Array.isArray(gameData.value.images[currentNode.value])) {
-      path = gameData.value.images[currentNode.value][imageIndex.value]; 
-    } else {
-      path = gameData.value.images[currentNode.value];
-    }
+    path = gameData.value.images[currentNode.value][imageIndex.value];
     return {
       backgroundImage: `url("${path}")`,
       backgroundSize: 'contain',
@@ -35,7 +31,7 @@
       minwidth: "100vw",
       backgroundRepeat: 'no-repeat',
     };
-  }); 
+  });
 
   // Starts the game
   const startGame = () => {
@@ -71,10 +67,8 @@
       displayedStory.value = "";
       return;
     }
-
     displayedStory.value = "";
     let i = 0;
-
     play_soundfile(textSound);
 
     typewriterInterval = setInterval(() => {
@@ -134,7 +128,7 @@
           </div>
 
         <div class="options-outer-bar">
-          <div v-if="imageIndex + 1 < game.images[currentNode].length">
+          <div v-if="imageIndex + 1 < game.images[currentNode].length" class="options-container">
             <Cbutton @click="nextImage">Next</Cbutton>
           </div>
 
@@ -142,14 +136,13 @@
             <div v-if="gameData.options[currentNode]?.length > 0" class="options-container">
               <div v-for="(option, i) in gameData.options[currentNode]" :key="i" class="option-item">
                 <Cbutton @click="makeChoice(i)">
-                  <span class="gold-text"> </span>
                   {{ option }}
                 </Cbutton>
               </div>
             </div>
 
-            <div v-else>
-              <Cbutton @click="stopGame">OKEY</Cbutton>
+            <div v-else class="options-container">
+              <Cbutton @click="stopGame">BACK TO START</Cbutton>
             </div>
           </div>
         </div>
