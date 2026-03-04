@@ -86,9 +86,10 @@ export const story_array: Array<Array<string>> =
     ["While following the footsteps you spot a person, but you also see a warning sign that says 'People are not people anymore'", "SNOPP"], // 2
     ["As you run to hide you stumble upon a cave, while catching your breath you see a person in the forest, they look strange, further away you see an open field"], // 3
     ["As you get closer you see the figure is a completely normal person. However, it is too late to be friendly now as the person seems to have taken your threatening gesture as an act of violence!?" //4.0
-        ,"He suddenly lunges towards you and reaches for the weapon in your hand. The two of you fall in the tall grass in front of the car and you feel a warm liquid start to form on the side of your body, then a paralyzing pain.", //4.1
-    "" //4.2
-], // 4
+        ,"He suddenly lunges towards you and reaches for the weapon in your hand. The two of you fall in the tall grass in front of the car and you feel a warm liquid start to pour on your face and into your eyes in the darkness", //4.1
+    "the figure, who was laying on top of you rolls off and holds his hand to his neck. He looks at you and says `People are not people anymore` as the light seems to leave his eyes", //4.2
+     "" // 4.3
+], 
     ["As you follow the person and come closer, it does not seem like a normal person, you wonder if it is safe to approach them"], // 5
     ["You move towards the open field, with broken trees and weird trails on the ground, you find a ruined campsite with a walkie talkie, you pick it up and analyse the camp, you could stay here"], // 6
     ["In the cave you find a bunch of edible mushrooms and an old fireplace to grill at, you manage to start a fire"], // 7
@@ -108,11 +109,11 @@ export const story_array: Array<Array<string>> =
 ]
 
 export const test_images: imageArray = 
-    [["/crashed-car-ugly.png", "/car-noperson.png", "/person-further.png"], //0
+    [["/in car wide.png", "/car-noperson.png", "/person-further.png"], //0
      ["/Taric.webp", "/gräs.avif"],//1
       ["/background1.png", "/gräs.avif"], //2
       ["/gragas.webp"], //3
-       ["/Taric.webp"], //4
+       ["/Taric.webp", "/Taric.webp", "/Taric.webp", "/Taric.webp"], //4
        ["/gräs.avif"],//5
         ["/gragas.webp"],//6
          ["/Taric.webp"],//7

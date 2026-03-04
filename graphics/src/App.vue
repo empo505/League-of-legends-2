@@ -8,14 +8,8 @@
 const backgroundStyle = computed(() => {
  
       let path;
-  
-  if (Array.isArray(gameData.value.images[currentNode.value])) {
-    path = gameData.value.images[currentNode.value][imageIndex.value]; 
-  } else {
-    path = gameData.value.images[currentNode.value];
-  }
 
- 
+    path = gameData.value.images[currentNode.value][imageIndex.value]; 
   
   return {
     backgroundImage: `url("${path}")`,
@@ -64,8 +58,8 @@ const result = vue_game(gameData.value, currentNode.value, index);
         <h1>SPEL</h1>
       </header>
     <main class="game-content">
-    <div v-if="!gameActive" class="start-screen">
-      <h2>Welcome to game!</h2>
+    <div v-if="!gameActive" class="start-container">
+      <h2 class="welcome-text">Welcome to game!</h2>
       <Cbutton @click="startGame">Press to play!</Cbutton>
     </div>
 
@@ -77,7 +71,8 @@ const result = vue_game(gameData.value, currentNode.value, index);
       
   
       <div class="options-outer-bar">
-        <div v-if="imageIndex + 1 < game.images[currentNode].length">
+        
+        <div v-if="imageIndex + 1 < game.images[currentNode].length" class="options-container">
         <Cbutton @click="nextImage">Next</Cbutton>
       </div>
       <div v-else>
@@ -90,11 +85,12 @@ const result = vue_game(gameData.value, currentNode.value, index);
       </div>
     
     </div>
-    <div v-else>
+    <div v-else class="options-container">
       <Cbutton @click="stopGame">OKEY</Cbutton>
       
     </div>
       </div>
+      
       </div>
     </div>
   </main>
