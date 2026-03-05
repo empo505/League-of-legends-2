@@ -2,7 +2,7 @@
 import {
     for_each, member, type List, list, head, tail, length, list_ref, is_null
 } from '../lib/list';
-import { stringArrayArray, FlowGraph, Game, inventory, nodeItem, itemneeds } from './types';
+import { stringArrayArray, FlowGraph, Game, inventory, nodeItem, itemneeds, options } from './types';
 
 
 
@@ -10,8 +10,8 @@ import { stringArrayArray, FlowGraph, Game, inventory, nodeItem, itemneeds } fro
 
 export const choices: FlowGraph = {
     adj: [
-        list(1, 2, 3),      // 0  start
-        list(4, 5),         // 1
+        list(1, 2, 4),      // 0  start
+        list(2, 5),         // 1
         list(4, 6, 7),      // 2
         list(6, 7),         // 3
         list(8, 9, 20),         // 4
@@ -37,28 +37,106 @@ export const choices: FlowGraph = {
 
 
 
-export const choices_array: Array<Array<string>> = [
-    ["Search car for supplies", "Follow footsteps outside", "Run to hide"], // 0
-    ["Gather strength to confront the looming silhuette", "Go outside and gesture the stranger you don't mean harm", "Jump over to the passenger seat and run to the woods"],          // 1
-    ["Follow the moving person further away", "Run away toward open field", "Go to cave to scout for food"], // 2
-    ["Run away toward open field", "Go to cave to scout for food"],          // 3
-    ["Cover yourself in leather and now approach the person", "Cover the car in leather and setup camp"],          // 4
-    ["Approach person", "Do not approach person and move in different direction"],          // 5
-    ["Keep moving", "Rebuild the camp and rest"],          // 6
-    ["Setup camp in cave", "Rest and leave the cave", "Move deeper in cave"], // 7
-    ["Help person and team up", "Help person and leave them, then look for water"],          // 8
-    ["Look for highground to scout for people", "Look for more food to keep you alive"],          // 9
-    ["Look for water", "Look for food"],          // 10
-    ["Look for water", "Look for people"],          // 11
-    ["Look for more food to survive", "Look for people"],          // 12
-    ["Go to camp", "Dont trust the camp and be alone"],          // 13 
-    ["Let the stream take you further", "Try to grab branch in stream"],          // 14
-    ["Leave bear", "Attack bear"],          // 15
-    ["Go to camp", "Dont trust the camp and be alone"], // 16
-    [],                          // 17 ENDING
-    [],                          // 18 ENDING
-    [],                          // 19 ENDING
-    ["Rest"]
+export const choices_array: options = [
+    // 0
+    [
+        { text: "Search car for supplies", requirement: null },
+        { text: "Follow footsteps outside", requirement: null },
+        { text: "Run to hide", requirement: null }
+    ],
+    // 1
+    [
+        { text: "Gather strength to confront the looming silhuette", requirement: null },
+        { text: "Go outside and gesture the stranger you don't mean harm", requirement: null },
+        { text: "Jump over to the passenger seat and run to the woods", requirement: null }
+    ],
+    // 2
+    [
+        { text: "Follow the moving person further away", requirement: null },
+        { text: "Run away toward open field", requirement: null },
+        { text: "Go to cave to scout for food", requirement: null }
+    ],
+    // 3
+    [
+        { text: "Run away toward open field", requirement: null },
+        { text: "Go to cave to scout for food", requirement: null }
+    ],
+    // 4
+    [
+        { text: "Cover yourself in leather and now approach the person", requirement: "leather" },
+        { text: "Cover the car in leather and setup camp", requirement: "knife" }
+    ],
+    // 5
+    [
+        { text: "Approach person", requirement: null },
+        { text: "Do not approach person and move in different direction", requirement: null }
+    ],
+    // 6
+    [
+        { text: "Keep moving", requirement: null },
+        { text: "Rebuild the camp and rest", requirement: null }
+    ],
+    // 7
+    [
+        { text: "Setup camp in cave", requirement: null },
+        { text: "Rest and leave the cave", requirement: null },
+        { text: "Move deeper in cave", requirement: null }
+    ],
+    // 8
+    [
+        { text: "Help person and team up", requirement: null },
+        { text: "Help person and leave them, then look for water", requirement: null }
+    ],
+    // 9
+    [
+        { text: "Look for highground to scout for people", requirement: null },
+        { text: "Look for more food to keep you alive", requirement: null }
+    ],
+    // 10
+    [
+        { text: "Look for water", requirement: null },
+        { text: "Look for food", requirement: null }
+    ],
+    // 11
+    [
+        { text: "Look for water", requirement: null },
+        { text: "Look for people", requirement: null }
+    ],
+    // 12
+    [
+        { text: "Look for more food to survive", requirement: null },
+        { text: "Look for people", requirement: null }
+    ],
+    // 13 
+    [
+        { text: "Go to camp", requirement: null },
+        { text: "Dont trust the camp and be alone", requirement: null }
+    ],
+    // 14
+    [
+        { text: "Let the stream take you further", requirement: null },
+        { text: "Try to grab branch in stream", requirement: "branch" } // Assuming a branch is needed or found?
+    ],
+    // 15
+    [
+        { text: "Leave bear", requirement: null },
+        { text: "Attack bear", requirement: "knife" } // Added knife requirement here as an example
+    ],
+    // 16
+    [
+        { text: "Go to camp", requirement: null },
+        { text: "Dont trust the camp and be alone", requirement: null }
+    ],
+    // 17 ENDING 
+    [],
+    // 18 ENDING
+    [],
+    // 19 ENDING
+    [],
+    // 20
+    [
+        { text: "Rest", requirement: null }
+    ]
 ];
 
 
@@ -122,7 +200,7 @@ export const test_images: stringArrayArray =
                 ]
 
 export let test_inventory: inventory = [];
-export const test_node_items: nodeItem = [null, "knife", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+export const test_node_items: nodeItem = [null, "knife", "leather", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
 export const test_needs: itemneeds =[0, 0, 0, 0, ["knife", "You found the knife!"], 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ]
 
 export const game_test: Game = {
@@ -132,5 +210,4 @@ export const game_test: Game = {
     images: test_images,
     nodeItems: test_node_items,
     inventory: test_inventory,
-    nodeneeds: test_needs
 };

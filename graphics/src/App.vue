@@ -43,6 +43,7 @@
     currentNode.value = 0;
     gameActive.value = true;
   };
+  
   const stopGame = () => {
     gameActive.value = false;
     currentNode.value = 0;
@@ -147,14 +148,12 @@
             <div v-if="gameData.options[currentNode]?.length > 0" class="options-container">
              
               <div v-for="(option, i) in gameData.options[currentNode]" :key="i" class="option-item">
-                <Cbutton @click="makeChoice(i)">
+                <Cbutton v-if="!option.requirement || inventory.includes(option.requirement)" @click="makeChoice(i)">
                   <span class="gold-text"> </span>
-                  {{ option }}
+                  {{ option.text }}
                   
                 </Cbutton>
-                <Cbutton v-if="i + 1 === gameData.options[currentNode].length && inventory.includes(gameData.nodeneeds[currentNode][0])" @click="makeChoice(i + 1)">
-                  {{ gameData.nodeneeds[currentNode][1] }}
-                </Cbutton>
+                
               </div>
             </div>
 
