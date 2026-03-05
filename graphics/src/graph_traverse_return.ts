@@ -3,7 +3,7 @@ import {
 } from '../lib/list';
 
 
-import { Game, newRecord, inventory } from "./types";
+import { Game, newRecord, stringArray } from "./types";
 
 
 
@@ -17,12 +17,17 @@ import { Game, newRecord, inventory } from "./types";
  * @returns {newRecord} a record that consists of a number or null, an array of strings
  *             and two strings that is used as input in the VUE file. 
  */
-export function vue_game(game: Game, currentNode: number, userNext: number, gameInventory: inventory): newRecord {
+export function vue_game(game: Game, currentNode: number, userNext: number, gameInventory: stringArray): newRecord {
     const neighbors = game.graph.adj[currentNode];
     const nextNode = Number(list_ref(neighbors, userNext));
     const foundItem = game.nodeItems[currentNode]
     let updatedInventory = [...gameInventory]; 
+
+      if (foundItem) {
     
+        updatedInventory = [...updatedInventory, foundItem];
+    }
+
     if (!neighbors || neighbors === null ) {
         return {
             nextNode: null,
@@ -33,12 +38,7 @@ export function vue_game(game: Game, currentNode: number, userNext: number, game
         };
     }
     
-    if (foundItem) {
-        const itemName = foundItem;
-    
-        updatedInventory = [...updatedInventory, itemName];
-    }
-
+  
 
     return {
         nextNode,

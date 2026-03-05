@@ -51,19 +51,16 @@
     inventory.value = [];
   }
 
-  // Stops the game
 
 
-  // Plays the game and when the game is over resets it
   const makeChoice = (index) => {
     play_soundfile(buttonSound);
     const result = vue_game(gameData.value, currentNode.value, index, inventory.value);
-    inventory.value = result.inventory;
     currentNode.value = result.nextNode;
+    inventory.value = result.inventory;
     imageIndex.value = 0;
   };
 
-  // Makes the text come one letter at the time and puts sound over it
   const typeWriter = (text) => {
     if (typewriterInterval) {
       clearInterval(typewriterInterval);
@@ -93,13 +90,11 @@
     }, 25);
   };
 
-  // Runs typewriter when node updates, except for the starting node
   watch(currentNode, (newNode) => {
       imageIndex.value = 0; 
       typeWriter(gameData.value.story[newNode][0]);
     });
   
-  // Runs typewriter when clicking on "Next"
   watch(imageIndex, (newIdx) => {
     const currentStoryArray = gameData.value.story[currentNode.value];
     if (currentStoryArray && currentStoryArray[newIdx]) {
@@ -107,7 +102,6 @@
     }
   });
 
-  // Starts the first text when the game is activated 
   watch(gameActive, (active) => {
     if (active) {
       typeWriter(gameData.value.story[currentNode.value][imageIndex.value]);
@@ -127,7 +121,6 @@
     </header>
 
     <main class="game-content">
-      {{ gameData.graph.adj[currentNode] }} {{ currentNode }}
       <div v-if="!gameActive" class="start-container">
         <h2>Welcome to game!</h2>
           <Cbutton @click="startGame">Press to play!</Cbutton>
@@ -164,5 +157,13 @@
         </div>
       </div>
     </main>
+    <footer>
+      <div class="inventory-bar" v-if="gameActive">
+        <div class="inventory-items">
+          <div v-for="(item, i) in inventory" :key="i" class="inventory-slot">
+            <img :src="item" />
+          </div>
+        </div> </div>
+    </footer>
   </div>
 </template>

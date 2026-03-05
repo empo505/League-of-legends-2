@@ -73,6 +73,7 @@ body {
   border-radius: 10px;
   backdrop-filter: blur(10px);
   z-index: 10;
+  margin-bottom: 60px;
 
 }
 .start-container {
@@ -105,23 +106,7 @@ body {
   color: white;
   margin-bottom: 2rem;
 }
-.inventory-bar {
-  position: fixed;
-  left: 0;
-  top: 15%;
-  bottom: 15%;
-  width: 150px;           
-  background: rgba(0, 0, 0, 0.6); 
-  border-top: 2px solid #ffd700; 
-  border-right: 2px solid #ffd700; 
-  border-bottom: 2px solid #ffd700 ;
-  padding: 20px 10px;
-  z-index: 50;            
-  color: white;
-  display: flex;
-  flex-direction: column;
-  z-index: 1;
-}
+
 .options-outer-bar {
   position: fixed;
   bottom: 0;
@@ -134,3 +119,43 @@ body {
   align-items: center;  
   z-index: 10;
 }
+
+.inventory-bar {
+position: absolute;
+bottom: 0;
+left: 0;
+width: 100%;
+background: rgba(0, 0, 0, 0.6);
+padding: 10px;
+display: flex;
+flex-direction: column;
+align-items: center;
+border-top: 2px solid #444;
+backdrop-filter: blur(10px);
+color: white;
+}
+
+.inventory-items {
+display: flex;
+gap: 10px;
+margin-top: 5px;
+width: 60px;
+height: 60px;
+justify-content: center;
+align-items: center;
+}
+
+.inventory-slot img {
+width: 60px;
+height: 60px;
+border: 2px solid #3b2f21;
+display: flex;
+align-items: center;
+justify-content: center;
+background: rgba(255, 255, 255, 0.1);
+font-size: 0.8rem;
+text-align: center;
+padding: 2px;
+overflow: hidden;
+}
+

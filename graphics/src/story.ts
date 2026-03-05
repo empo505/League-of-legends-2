@@ -2,7 +2,7 @@
 import {
     for_each, member, type List, list, head, tail, length, list_ref, is_null
 } from '../lib/list';
-import { stringArrayArray, FlowGraph, Game, inventory, nodeItem, itemneeds, options } from './types';
+import { stringArrayArray, FlowGraph, Game ,stringArray, nodeItem, options } from './types';
 
 
 
@@ -11,7 +11,7 @@ import { stringArrayArray, FlowGraph, Game, inventory, nodeItem, itemneeds, opti
 export const choices: FlowGraph = {
     adj: [
         list(1, 2, 4),      // 0  start
-        list(2, 5),         // 1
+        list(2, 4),         // 1
         list(4, 6, 7),      // 2
         list(6, 7),         // 3
         list(8, 9, 20),         // 4
@@ -199,9 +199,7 @@ export const test_images: stringArrayArray =
                   ["lying-on-back.png", "falling-asleep.png"] //20
                 ]
 
-export let test_inventory: inventory = [];
-export const test_node_items: nodeItem = [null, "knife", "leather", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
-export const test_needs: itemneeds =[0, 0, 0, 0, ["knife", "You found the knife!"], 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ]
+export const test_node_items: nodeItem = ["minecraft-apple.png", "BJÖRN.png", "KNIF_genomSKINLIg.png", null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
 
 export const game_test: Game = {
     graph: choices,
@@ -209,5 +207,5 @@ export const game_test: Game = {
     story: story_array,
     images: test_images,
     nodeItems: test_node_items,
-    inventory: test_inventory,
+
 };

@@ -1,28 +1,24 @@
-import {
-    List,
-    list_ref
-} from '../lib/list';
+
 
 import {
     type ListGraph
 } from '../lib/graphs';
-
+export type strNull = string | null;
 export type FlowGraph = ListGraph;
-export type stringArrayArray = Array<Array<string>>;
+export type stringArray = Array<string>;
+export type stringArrayArray = Array<stringArray>;
 
-export type nodeItem = Array<string | null>
+export type nodeItem = Array<strNull>
+
 export type option = {
     text: string,
-    requirement: string | null
-}
-export type options = Array<Array<option>>
-export type inventory = Array<string>
-export type itemneeds = Array<[string, string] | 0>
+    requirement: strNull
+};
 
-/*
-export type Story = Array<Array<string>>;
-export type Images = Array<Array<string>>;
-*/
+export type optionArray = Array<option>;
+export type options = Array<optionArray>;
+
+
 
 export type Game = {
     graph: FlowGraph
@@ -30,14 +26,13 @@ export type Game = {
     story: stringArrayArray
     images: stringArrayArray
     nodeItems: nodeItem
-    inventory: inventory
 };
 
 
 export type newRecord = {
     nextNode: number | null
-    current_options: Array<option>
-    story: Array<string>
-    image: Array<string>
-    inventory: inventory
-}
+    current_options: optionArray
+    story: stringArray
+    image: stringArray
+    inventory: stringArray
+};
